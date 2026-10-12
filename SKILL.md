@@ -89,7 +89,7 @@ Styles are written from one kind of footage: standing or seated, wide or close, 
 
 Besides the member full screen, styles can ask for:
 
-- **split**: the frame cut into two stacked parts (50/50 unless the style says otherwise), the member cropped into one, other footage in the other. Keep the face inside its part.
+- **split**: the frame cut into two stacked parts (50/50 unless the style says otherwise), the member cropped into one, other footage in the other. Crop in until the member fills their part: the top of the head about a tenth of the part's height below its top edge, not a band of empty wall above. Keep the face inside its part, and check the crop on a still where they sit tallest.
 - **inset**: a smaller video or picture floating over the member.
 - **cutaway**: other footage full screen for a moment; the member's voice keeps going.
 
