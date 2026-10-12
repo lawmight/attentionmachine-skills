@@ -44,10 +44,11 @@ Members are online coaches, consultants and business owners, not developers. Avo
 ## Cutting
 
 - Choose what to keep as words from the transcript, never as times. Transcript word ends are often early, so cuts placed on them clip words. `node <this skill>/assets/snap-cuts.mjs words <transcript>` numbers the words; `node <this skill>/assets/snap-cuts.mjs <recording> <transcript> <keeps.json> <fps>` places every cut in the quiet around them and lays out the clips.
-- Use its clips as they are: `sound` as `<Audio>` clips, `picture` as muted `<Video>` clips. By default the picture switches 200 ms after the sound (a J-cut), so the next line is heard just before it's seen. A style or the member can change that with `--j-cut=<ms>`; `--j-cut=0` cuts both together.
+- Use its clips as they are, at full volume where they overlap: `sound` as `<Audio>` clips, `picture` as muted `<Video>` clips. `words` gives every kept word's frames in the video; time captions from it.
+- The defaults are tight: pauses over 350 ms are cut out, the words at each cut meet with no air between them, and the picture switches 200 ms after the sound (a J-cut), so the next line is heard just before it's seen. A style or the member can change them: `--max-pause=<ms>` (`off` keeps every pause), `--air=<ms>`, `--j-cut=<ms>` (`0` cuts picture and sound together).
+- Keep whole thoughts; leave out false starts, repeats and retakes. To cut a pause the tool keeps, end one keep before it and start the next after it.
 - Captions follow the sound. Graphics that arrive with a new shot follow the picture.
-- To cut out a pause, end one keep before it and start the next after it. Where it warns that a cut lands on sound, choose other words or listen to that cut.
-- How tight the cuts are comes from the style.
+- Where it warns that a cut lands on sound, choose other words if that helps; otherwise give the member those video times to listen to.
 - Before handing over, export only the sound (`--codec=wav`), transcribe it and compare it with the words you kept.
 
 ## Showing the work
@@ -130,7 +131,7 @@ When the member says what they like or dislike (caption look, cut style, music, 
 - In phone videos the sound can start a split second after the picture. If words land late against the picture, check this first.
 - iPhone videos can carry a second, spatial sound track browsers can't play. Pick the normal track (`audioStreamIndex={0}`). At export, `@remotion/media` may fail to read such a file and fall back to the slower reader on its own; that's fine.
 - Never make lighter working copies of recordings.
-- Joining clips: overlap the sound by a frame or two at each cut, from about half volume, or it clicks. Not at the very start or end.
+- Joining sound clips without the tool (music, voiceovers): overlap them by a frame or two, from about half volume, or it clicks. Not at the very start or end.
 - Anything on screen keeps its look and place from its first frame to its last, unless the style animates it. If something else changes how it should look (a card arriving), decide once per item, not per frame, or it flips halfway.
 - Graphics behind the member: the cut-out and the picture under it must both come from the same `@remotion/video-matting` run (its base layer), never the original recording. Otherwise they're drawn at slightly different sizes and edges show twice.
 - First and last frames: cut where they look away or down. Start and end on closed eyes if the audio allows.
