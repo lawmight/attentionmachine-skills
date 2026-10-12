@@ -46,7 +46,7 @@ Show work in the ready-made player in `assets/player/`, not Remotion Studio. Ope
 
 1. Copy `assets/player/` into the project as `player/`, and `assets/safe-zones.ts` to `src/safe-zones.ts`.
 2. Create `src/preview.ts` exporting `preview = { component, durationInFrames, fps, width, height }`, usually the same values as the main composition.
-3. Install `@remotion/player`, `vite` and `@vitejs/plugin-react`, then run `npx vite player` in the project.
+3. Install `@remotion/player` (same version as `remotion`), `vite`, `@vitejs/plugin-react` and `@types/react-dom` with `--legacy-peer-deps` (an optional part of the React plugin clashes otherwise), then run `npx vite player` in the project.
 
 Open it in your internal browser if you can, and give the member the link as soon as there's something to see. It reloads on every change, so it never autoplays and comes back paused on the same frame. On vertical videos, an "Instagram overlay" button shows what the app covers and what iPhones cut off at the sides; it starts off.
 
@@ -70,6 +70,10 @@ Styles and members can name a height. `POSITIONS` pins it:
 - **bottom**: the bottom edge sits on the bottom of the zone.
 
 A named position is a starting point. If it would cover the face on this recording, move to the nearest spot that doesn't.
+
+### When the style doesn't fit the recording
+
+Styles are written from one kind of footage: standing or seated, wide or close, room above the head or not. When this recording differs (the head fills the top, the background is too pale for the style's text, a size won't fit the zone), keep what the style is going for and adapt: move to the nearest named position that works, shrink text to fit the zone, make it readable on this background. Tell the member what you changed and why.
 
 ## Layouts
 
@@ -96,7 +100,7 @@ When the member mentions a brand, product, app, person or place, do your best to
 A style is a `style.md` describing one look: fonts, sizes, colours, how captions read (case, punctuation, words at a time), named positions, layouts, pictures, pacing, cuts, motion and sound. Ready-made ones are in `styles/` in this skill. The member's own are in `styles/` in the main folder.
 
 - Ask which style to use when a video starts, unless `preferences.md` already says. Note it in the project's `about.md`.
-- Follow the style closely, but this file wins on safe zone and face, unless the member asks otherwise.
+- Follow the style closely. Text stays in the safe zone whatever the style says, unless the member asks otherwise. The face stays clear unless the style or the member says to cover it.
 - A member who wants to change a style gets their own copy in the main folder `styles/`, with a new name. Never edit a ready-made style for one member.
 
 ### Copying a style from a video
@@ -123,7 +127,8 @@ When the member says what they like or dislike (caption look, cut style, music, 
 
 - Phone videos are often stored sideways with a rotation tag. Check it before reading the recording's width and height.
 - In phone videos the sound can start a split second after the picture. If words land late against the picture, check this first.
-- iPhone videos can carry a second, spatial sound track browsers can't play. Pick the normal track (`audioStreamIndex={0}`).
+- iPhone videos can carry a second, spatial sound track browsers can't play. Pick the normal track (`audioStreamIndex={0}`). At export, `@remotion/media` may fail to read such a file and fall back to the slower reader on its own; that's fine.
+- Never make lighter working copies of recordings. If 4K phone footage stutters in the preview, premount each clip (`premountFor`) and play the sound from the video itself, not from separate audio tracks. A preview tab in the background also stutters; that's not the video.
 - Joining clips: overlap the sound by a frame or two at each cut, from about half volume, or it clicks. Not at the very start or end. `<TransitionSeries>` remounts clips and makes the player stall on every cut.
 - Anything on screen keeps its look and place from its first frame to its last, unless the style animates it. If something else changes how it should look (a card arriving), decide once per item, not per frame, or it flips halfway.
 - The preview hides some export problems (layers out of line, unreadable files). Check graphics with `npx remotion still` at that moment, and pause the player before taking screenshots.
