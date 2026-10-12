@@ -63,6 +63,7 @@ Open it in your internal browser if you can, and give the member the link as soo
 ## Captions
 
 - No punctuation. Apostrophes and hyphens inside words stay (don't, flip-flop).
+- No capital at the start of a sentence. Names and "I" keep theirs.
 
 ## Pictures
 
