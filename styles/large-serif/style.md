@@ -1,9 +1,9 @@
 ---
-name: One Word Serif
+name: Large Serif
 description: Calm, elegant list video. Full-body speaker, one white serif word at a time, numbered steps with stacked titles, punch-ins with a soft hit, and quick photo bursts laid big over the speaker.
 ---
 
-# One Word Serif
+# Large Serif
 
 Feels like a classy magazine list come to life. The speaker stands in a styled room; the words are quiet, the structure is loud.
 
