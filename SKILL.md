@@ -64,6 +64,7 @@ Open it in your internal browser if you can, and give the member the link as soo
 
 - No punctuation. Apostrophes and hyphens inside words stay (don't, flip-flop).
 - No capital at the start of a sentence. Names and "I" keep theirs.
+- A caption keeps one look and place from its first frame to its last. If something else on screen changes how captions look, decide it once per caption, not per frame.
 
 ## Pictures
 
