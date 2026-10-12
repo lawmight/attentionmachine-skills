@@ -54,8 +54,8 @@ Open it in your internal browser if you can, and give the member the link as soo
 
 `assets/safe-zones.ts` holds the part of a vertical Reel that Instagram leaves visible on an iPhone.
 
-- Text and key info (captions, titles, calls to action) stay inside, unless the member asks otherwise.
-- Graphics behind the member may run past it and off the frame. Don't fade them at the edge.
+- Anything the viewer must read or see (captions, titles, labels, calls to action, text on cards) stays fully inside, unless the member asks otherwise. Place it from the bands in `src/safe-zones.ts`, not by eye.
+- Other graphics may run past it and off the frame where that looks right. Use judgment. Don't fade them at the edge.
 
 ## Motion graphics
 

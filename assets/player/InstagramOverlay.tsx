@@ -107,9 +107,9 @@ const roundedPoly = (pts: [number, number][], radii: number[]) => {
   };
   let d = "";
   pts.forEach((v, i) => {
-    const r = radii[i];
-    const prev = pts[(i + n - 1) % n];
-    const next = pts[(i + 1) % n];
+    const r = radii[i] ?? 0;
+    const prev = pts[(i + n - 1) % n]!;
+    const next = pts[(i + 1) % n]!;
     const p1 = along(v, prev, r);
     const p2 = along(v, next, r);
     d += `${i === 0 ? "M" : "L"}${p1[0]},${p1[1]} Q${v[0]},${v[1]} ${p2[0]},${p2[1]} `;
