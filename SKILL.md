@@ -1,6 +1,6 @@
 ---
 name: attention-editor
-description: Edit a member's recordings into finished videos with Remotion, made for Instagram Reels. Use when a member drops in recordings, asks for any video edit, caption, title, graphic, overlay, transition or animation in this folder, or wants to copy the style of a video they like.
+description: Edit a member's recordings into finished videos with Remotion, made for Instagram Reels. Use when a member drops in recordings, asks for any video edit, caption, title, graphic, overlay, transition or animation in this folder, or wants to copy the style of a video they like, or make a style out of one.
 ---
 
 # Attention Editor
@@ -39,6 +39,7 @@ Members are online coaches, consultants and business owners, not developers. Avo
 
 - ElevenLabs does all the listening and sound: transcripts with word timings (Scribe), sound effects, music and voiceovers. Use it instead of the local Whisper options in the Remotion captions skill.
 - Every call costs the member credits. Transcribe each recording once and reuse the file.
+- Some plans allow only one request at a time. Send calls one after another.
 
 ## Cutting
 
@@ -105,7 +106,7 @@ When the member mentions a brand, product, app, person or place, do your best to
 
 ## Styles
 
-A style is a `style.md` describing one look: fonts, sizes, colours, how captions read (case, punctuation, words at a time), named positions, layouts, pictures, pacing, cuts, motion and sound. Ready-made ones are in `styles/` in this skill. The member's own are in `styles/` in the main folder.
+A style is a `style.md` describing one look: fonts, sizes, line spacing, colours, how captions read (case, punctuation, words at a time), named positions, layouts, pictures, pacing, cuts, motion and sound. Ready-made ones are in `styles/` in this skill. The member's own are in `styles/` in the main folder.
 
 - Ask which style to use when a video starts, unless `preferences.md` already says. Note it in the project's `about.md`.
 - Follow the style closely. Text stays in the safe zone whatever the style says, unless the member asks otherwise. The face stays clear unless the style or the member says to cover it.
@@ -113,15 +114,7 @@ A style is a `style.md` describing one look: fonts, sizes, colours, how captions
 
 ### Copying a style from a video
 
-When a member shares videos they like and wants that look:
-
-1. Download them (`yt-dlp`; Instagram needs a logged-in browser's cookies, `--cookies-from-browser`). If one browser is blocked by the computer's privacy settings, try another.
-2. Transcribe them. What creators say often explains what they do.
-3. Look at one frame per second for the overview, then frame by frame around every cut and every new graphic. One frame per second hides all motion.
-4. Look at full-size crops of the text to read fonts and sizes.
-5. Ask the member about sound. Loudness alone can't tell music from room noise or sound effects.
-6. Write a `style.md` in the main folder `styles/<name>/`, like the ready-made ones: the system behind the look, so it works on a new recording. No creator names, no lines from their videos.
-7. Offer to try it on one of the member's recordings.
+When a member shares videos they like and wants that look ("make a style out of this", "copy this"), read [references/copying-a-style.md](references/copying-a-style.md) in full and follow it. It ends in a new `style.md` in the main folder's `styles/`.
 
 ## Motion graphics
 
@@ -141,3 +134,4 @@ When the member says what they like or dislike (caption look, cut style, music, 
 - Anything on screen keeps its look and place from its first frame to its last, unless the style animates it. If something else changes how it should look (a card arriving), decide once per item, not per frame, or it flips halfway.
 - Graphics behind the member: the cut-out and the picture under it must both come from the same `@remotion/video-matting` run (its base layer), never the original recording. Otherwise they're drawn at slightly different sizes and edges show twice.
 - First and last frames: cut where they look away or down. Start and end on closed eyes if the audio allows.
+- Text on more than one line runs into itself easily, most of all stacked sizes and tucked lines. Check each one in a full-size still: no letters touch (tall letters, tails, i-dots, accents) unless the style says they do. Fonts carry different built-in spacing, so judge the gaps you see, not a line-height number.
