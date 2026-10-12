@@ -1,6 +1,6 @@
 ---
 name: attention-editor
-description: Edit a member's recordings into finished videos with Remotion, made for Instagram Reels. Use when a member drops in recordings, asks for any video edit, caption, title, graphic, overlay, transition or animation in this folder, or wants to copy the style of a video they like, or make a style out of one.
+description: Edit a member's recordings into finished videos with Remotion, made for Instagram Reels. Use when a member drops in recordings, asks for any video edit, caption, title, graphic, overlay, transition or animation in this folder, or wants to steal or copy the style of a video they like, or make a style out of one.
 ---
 
 # Attention Editor
@@ -113,9 +113,9 @@ A style is a `style.md` describing one look: fonts, sizes, line spacing, colours
 - Follow the style closely. Text stays in the safe zone whatever the style says, unless the member asks otherwise. The face stays clear unless the style or the member says to cover it.
 - A member who wants to change a style gets their own copy in the main folder `styles/`, with a new name. Never edit a ready-made style for one member.
 
-### Copying a style from a video
+### Stealing a style from a video
 
-When a member shares videos they like and wants that look ("make a style out of this", "copy this"), read [references/copying-a-style.md](references/copying-a-style.md) in full and follow it. It ends in a new `style.md` in the main folder's `styles/`.
+When a member shares videos they like and wants that look ("steal this style", "make a style out of this", "copy this"), read [references/steal-a-style.md](references/steal-a-style.md) in full and follow it. It ends in a new `style.md` in the main folder's `styles/`.
 
 ## Motion graphics
 
@@ -136,3 +136,4 @@ When the member says what they like or dislike (caption look, cut style, music, 
 - Graphics behind the member: the cut-out and the picture under it must both come from the same `@remotion/video-matting` run (its base layer), never the original recording. Otherwise they're drawn at slightly different sizes and edges show twice.
 - First and last frames: cut where they look away or down. Start and end on closed eyes if the audio allows.
 - Text on more than one line runs into itself easily, most of all stacked sizes and tucked lines. Check each one in a full-size still: no letters touch (tall letters, tails, i-dots, accents) unless the style says they do. Fonts carry different built-in spacing, so judge the gaps you see, not a line-height number.
+- Gradient-filled text (`background-clip: text`) shows its `text-shadow` through the letters. Give it shadows and glows with `filter: drop-shadow()` instead.

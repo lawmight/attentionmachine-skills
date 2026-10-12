@@ -1,4 +1,4 @@
-# Copying a style from a video
+# Stealing a style from a video
 
 A member shares a video they like and wants that look ("make a style out of this"). The result is a `style.md` in the main folder's `styles/<name>/`: the system behind the look, written so it works on the member's own recordings. It doesn't have to be a perfect copy, but the closer the better: someone who knows the original should recognise the look.
 
@@ -7,13 +7,15 @@ A member shares a video they like and wants that look ("make a style out of this
 - Ask for two or three videos of the same look if they have them. One video mixes the system with one-offs.
 - One look, one style. Videos from the same account usually share one; the downloaded info file says who posted each. Different looks get separate styles, unless the member wants a mix.
 - Download with `yt-dlp` and keep the info file. Instagram needs a logged-in browser's cookies (`--cookies-from-browser`); if the computer's privacy settings block one browser, try another.
+- Keep the videos, info files and transcripts in the new style's folder, in `styles/<name>/reference/`, to compare against later.
 - Transcribe each video with word timings and audio events. Learn from what the creator says as well as what they do; some explain their own method.
+- Write findings into `reference/notes.md` as you go, with the times they show up. A long look loses details otherwise.
 
 ## Look
 
 - One frame per second for the overview: which kinds of text, pictures and layouts there are, and how often something changes.
 - Every frame around cuts, new text or pictures, and zooms, until the pattern is clear. One frame per second hides zooms, slides, pops and punch-ins.
-- Find every cut. Jump cuts on the same background barely change the picture, so scene detection (ffmpeg `scdet`) needs a low threshold. Note what happens at each: a punch-in, new text, a sound.
+- Find every cut. Jump cuts on the same background barely change the picture, so scene detection (ffmpeg `scdet`) needs a low threshold. That also catches text appearing; a real cut changes the picture around the text too. Note what happens at each: a punch-in, new text, a sound.
 - Full-size crops of each kind of text, for fonts, colours and spacing.
 
 What happens in every video is the style. What happens once is a one-off: leave it out or mark it rare.
@@ -26,11 +28,13 @@ Every kind of text, including the rare ones (captions, big words, titles, labels
 - case, punctuation, how many words at once, how it builds (word by word or the whole phrase);
 - colour, and any shadow, glow, outline or box;
 - spacing between lines;
-- where it sits (the engine's named positions, or relative to the face) and what makes it appear;
+- where it sits: the nearest of the engine's named positions, with a nudge in words when it sits between two ("halfway from off-center to bottom"), or relative to the face. Not pixel heights; they don't carry over to other footage;
+- in front of the speaker or behind them (text behind the head needs the speaker cut out);
+- what makes it appear;
 - how it moves in and out: frames, direction, easing, overshoot;
 - what it never does.
 
-Then everything else: pictures (what kind, size, edges, placement, how they match what's said), layouts (split, inset, cutaway, and when), cuts and pacing (how tight, what hides a cut, how often something changes), punch-ins and zooms (how far, how often, what for), sound, the opening and the ending.
+Then everything else: pictures (what kind, size, edges, placement, how they match what's said), layouts (split, inset, cutaway, and when), cuts and pacing (how tight, what hides a cut, how often something changes), punch-ins and zooms (how far, how often, what for), sound effects, the opening and the ending.
 
 ## Fonts
 
@@ -38,9 +42,10 @@ Then everything else: pictures (what kind, size, edges, placement, how they matc
 
 - From the full-size crop, name what makes the type distinctive: serif or not, weight, width (condensed or wide), contrast between thick and thin strokes, how tall the small letters are, rounded or sharp ends, and telling letters (a, g, t, y, numbers).
 - Shortlist several free look-alikes from Google Fonts. Many have weight and width settings; use them.
-- Render the same words in each, at the same width as the original, next to the crop, and pick by eye.
+- Compare them on one sheet: `node <this skill>/assets/compare-fonts.mjs` draws the same words in each font under a crop of the original, at the same width, and says how much narrower or wider each is. Its first lines say how to set it up and run it. Pick by eye.
+- Caption tools often add extra slant, letter spacing or a thicker stroke on top of the font. Try those before ruling out a font with the right shapes.
 - Check numbers, punctuation and special characters in the pick. Some script fonts make "2." look like "Q.".
-- If you recognise a paid font, name it, but the style uses the closest free one.
+- Stop once a pick matches the weight, the width and the telling letters. Use the same family for the other kinds of text unless they clearly differ. Don't hunt for the paid original: if you recognise it, name it, but the style uses the closest free one.
 
 ## Colours
 
@@ -65,13 +70,13 @@ Stacked titles and mixed-size compositions often sit very close. This is where c
 
 ## Sound
 
-Never judge from loudness or silence. Room noise can pass for music, and soft effects hide under the voice.
+Leave music out. Members pick their own.
 
-1. The transcript's audio events: when it tags music or a sound, believe it. When it tags nothing, that proves nothing; it misses quiet music and subtle effects.
-2. Separate the voice with ElevenLabs voice isolation and compare it with the original, a few seconds at a time, as spectrograms one above the other (ffmpeg `showspectrumpic`, with the low notes in detail). Lines only in the original that hold a pitch, then step to another, are music. A short mark only in the original, at a cut, zoom, title or picture, is a sound effect; look at those frames to see what it belongs to. One pitch that never changes is usually hum.
-3. This can find music and effects but can't rule them out: soft music in the same range as the voice hides in the picture. Tell the member what you found, with times, and ask what you couldn't see: is there music, and does it play the whole time or start somewhere? Any sounds on cuts, zooms or titles? You can't hear it.
+Sound effects are an educated guess; say so in the style.
 
-Write a clear yes or no for music and for sound effects, and what triggers each. Never "music, if any": it reads as permission. Voice isolation costs credits per minute of sound, and some plans allow only one request at a time.
+- A sound the transcript tags (a bell, a whoosh) is real. Keep it, and what it lands on.
+- Otherwise decide from the look and the pace. Fast, punchy edits with zooms, pops and big words usually carry subtle whooshes, pops or clicks on those moments. Calm, hand-made looks get few or none.
+- Write a clear rule: which moments get a sound, what kind, and how loud next to the voice. Or "no sound effects".
 
 ## Writing it
 
@@ -89,4 +94,4 @@ Write the system, so it works on a recording that isn't theirs:
 
 ## Try it
 
-Offer to try it on one of the member's recordings. Before showing, put stills of the edit next to frames from the original at the same kinds of moments, and compare fonts, sizes, colours, spacing and motion. Look at every moment with text on more than one line at full size. Where the `style.md` was unclear, fix the file, not just the edit.
+Offer to try it on one of the member's recordings. Before showing, put stills of the edit next to frames from the original (in `reference/`) at the same kinds of moments, and compare fonts, sizes, colours, spacing and motion. Look at every moment with text on more than one line at full size. Where the `style.md` was unclear, fix the file, not just the edit.
