@@ -58,6 +58,16 @@ Open it in your internal browser if you can, and give the member the link as soo
 - Other graphics may run past it and off the frame where that looks right. Use judgment. Don't fade them at the edge.
 - Keep the member's face clear, especially eyes and mouth, unless they ask otherwise. Framing differs a lot between recordings, so look at where the face sits first and place everything around it, as best you can.
 
+## Pictures
+
+When the member mentions a brand, product, app, person or place, do your best to show the real thing, not only text: logos, photos, screenshots. A real picture beats a word on screen.
+
+- Logos: Simple Icons (`cdn.jsdelivr.net/npm/simple-icons@latest/icons/<name>.svg`, black, single colour) or Wikimedia Commons.
+- People and places: Wikimedia Commons (Wikipedia's lead photo is a good start) or official press kits. Prefer free licenses.
+- Save them in `public/images/` and list each source and license in `about.md`.
+- Cut-outs (people or objects without a background), when the style or the member wants them: remove the background locally, for example with `@imgly/background-removal-node`. Check the edges on a coloured background before using it.
+- Not sure it's the right person, logo or version? Or only a blurry one? Use text instead and tell the member.
+
 ## Motion graphics
 
 Before designing or changing any title, graphic, overlay, transition or animation, read [references/motion-design.md](references/motion-design.md) in full. Captions are not motion graphics; the guide doesn't cover them.
