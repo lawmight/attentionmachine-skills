@@ -33,8 +33,9 @@ All free on Google Fonts.
 ### Caption (most of the video)
 
 - Sans, white, about 44px, no box, no outline, a soft shadow at most.
-- Centred, about a quarter of the way down: above the speaker's head. If the speaker fills the frame, just below the chin instead.
+- Centred, **top**, above the speaker's head. If the speaker fills the frame, **off-center**, just below the chin, instead.
 - 1–5 words, one line, two at most. The whole phrase appears at once, in time with the voice.
+- No punctuation (apostrophes and hyphens inside words stay). No capital at the start of a sentence; names and "I" keep theirs.
 - One key word per phrase in Highlighter: the word that carries the meaning (a concept, a number, a name), not the word being spoken. Skip it when no word stands out; about half the captions have one.
 - Very rarely, the key word is also italic for a softer emphasis.
 
@@ -49,7 +50,7 @@ All free on Google Fonts.
 
 - Sans, Ink, about 36px, on a white box, 6px corners, tight padding.
 - Used instead of the caption when the top of the frame is busy (picture, chart, full-screen footage) or the background is too bright for white text.
-- Sits at chest height, centred.
+- Centred, **off-center** (chest height), or just below whatever made the frame busy.
 
 ### Tag pills
 
@@ -87,7 +88,7 @@ Pictures are the main event: something new on almost every line.
 - **Collages:** two to four cards scattered around the speaker at once.
 - **Screenshots:** articles, posts, quotes, apps, shown as cards, readable.
 - **Small icons and doodles:** 3D icons, white line doodles, tiny animated bits next to the head. Playful, small.
-- **Full-screen footage:** the speaker's own life or other clips for a few seconds. Captions become labels.
+- **Full-screen footage (cutaway):** the speaker's own life or other clips for a few seconds. Captions become labels.
 
 Matching rule: the picture shows the literal thing being said (a name shows their photo, a number shows a chart, a feeling shows a film scene).
 

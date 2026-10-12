@@ -1,13 +1,13 @@
 ---
 name: attention-editor
-description: Edit a member's recordings into finished videos with Remotion, made for Instagram Reels. Use when a member drops in recordings or asks for any video edit, caption, title, graphic, overlay, transition or animation in this folder.
+description: Edit a member's recordings into finished videos with Remotion, made for Instagram Reels. Use when a member drops in recordings, asks for any video edit, caption, title, graphic, overlay, transition or animation in this folder, or wants to copy the style of a video they like.
 ---
 
 # Attention Editor
 
 Made for Instagram Reels: vertical, 1080×1920, unless the member wants another shape.
 
-House rules for editing: where things go, what to check, and the few parts that ship ready-made. How to cut, caption and animate is up to you and the member's preferences.
+This skill is the engine: where things may go, what to check, and the few parts that ship ready-made. How things look, sound and move (fonts, sizes, colours, how captions read, pacing, cuts, animation) comes from a style and the member's preferences. With neither, use your judgment.
 
 ## Talking to the member
 
@@ -17,7 +17,7 @@ Members are online coaches, consultants and business owners, not developers. Avo
 
 - Remotion's official skills (`remotion-dev/skills`) are the guide for all Remotion work. Install them in the main folder if they're missing (`npx skills add remotion-dev/skills`, project scope), otherwise update them (`npx skills update -p -y`).
 - Read `preferences.md` in the main folder, if it exists.
-- Check `ELEVENLABS_API_KEY` is in `.env` in the main folder. If not, walk the member through making one on elevenlabs.io, have them paste it in the chat, test it with one small request, and save it. Never show the key back or copy it anywhere else.
+- Check `ELEVENLABS_API_KEY` is in `.env` in the main folder. If not, walk the member through making one on elevenlabs.io, have them paste it in the chat, test it with a tiny transcription, and save it. Keys can be limited to some features, so test with a real request, not the account page. Never show the key back or copy it anywhere else.
 
 ## When recordings come in
 
@@ -29,7 +29,7 @@ Members are online coaches, consultants and business owners, not developers. Avo
 - Each video gets its own Remotion project in `videos/YYYY-MM-DD-slug/`, with a slug that says what the video is about. If the name is taken, add `-2`.
 - You only know what it's about once you've heard it. Transcribe first (for example into the system temp folder), then create the project and move the transcripts in.
 - Every project has:
-  - `about.md`: what the video is about, and the full paths of the original recordings;
+  - `about.md`: what the video is about, the style it uses, and the full paths of the original recordings;
   - `transcripts/`: one file per recording;
   - `export/`: finished videos.
   The rest of the layout is up to you.
@@ -50,35 +50,70 @@ Show work in the ready-made player in `assets/player/`, not Remotion Studio. Ope
 
 Open it in your internal browser if you can, and give the member the link as soon as there's something to see. It reloads on every change, so it never autoplays and comes back paused on the same frame. On vertical videos, an "Instagram overlay" button shows what the app covers and what iPhones cut off at the sides; it starts off.
 
-## Safe zone
+## Where things go
 
-`assets/safe-zones.ts` holds the part of a vertical Reel that Instagram leaves visible on an iPhone.
+`assets/safe-zones.ts` holds the part of a vertical Reel that Instagram leaves visible on an iPhone, and the named positions below.
 
 - Centre things on the screen, not on the safe zone. The zone is lopsided, and something centred in it looks off.
-- Text never leaves the zone, unless the member asks: captions, titles, labels, calls to action, text on cards. Place it from the bands in `src/safe-zones.ts`, not by eye. For centred text, use the widest column around the screen's centre that still fits the band.
-- Other graphics (pictures, cut-outs, shapes) may run past the zone and off the frame where that looks right. Use judgment. Don't fade them at the edge.
-- Keep the member's face clear, especially eyes and mouth, unless they ask otherwise. Framing differs a lot between recordings, so look at where the face sits first and place everything around it, as best you can.
-- When things compete for space, captions win: centred, inside the zone. Then pictures and cards, big enough to see on a phone. Everything else is a judgment call.
+- Text never leaves the zone, unless the member asks: captions, titles, labels, calls to action, text on cards. Place it from `src/safe-zones.ts`, not by eye. For centred text, `column()` gives the widest stretch around the screen's centre that stays inside.
+- Other graphics (pictures, cut-outs, footage, shapes) may run past the zone and off the frame where that looks right. Use judgment. Don't fade them at the edge.
+- Keep the member's face clear, especially eyes and mouth, unless the style or the member asks otherwise. Framing differs a lot between recordings, so look at where the face sits first and place everything around it, as best you can.
+- When things compete for space, captions win, then pictures and footage, big enough to see on a phone. Everything else is a judgment call.
 
-## Captions
+### Named positions
 
-- No punctuation. Apostrophes and hyphens inside words stay (don't, flip-flop).
-- No capital at the start of a sentence. Names and "I" keep theirs.
-- A caption keeps one look and place from its first frame to its last. If something else on screen changes how captions look, decide it once per caption, not per frame.
+Styles and members can name a height. `POSITIONS` pins it:
+
+- **top**: the top edge sits on the top of the zone.
+- **center**: the middle sits on the middle of the screen.
+- **off-center**: the middle sits in the middle of the lower part of the zone, below the chin on most framings.
+- **bottom**: the bottom edge sits on the bottom of the zone.
+
+A named position is a starting point. If it would cover the face on this recording, move to the nearest spot that doesn't.
+
+## Layouts
+
+Besides the member full screen, styles can ask for:
+
+- **split**: the frame cut into two stacked parts (50/50 unless the style says otherwise), the member cropped into one, other footage in the other. Keep the face inside its part.
+- **inset**: a smaller video or picture floating over the member.
+- **cutaway**: other footage full screen for a moment; the member's voice keeps going.
+
+When a layout needs footage or a picture you don't have, put `assets/Placeholder.tsx` there (copy it into `src/`) with a short label of what belongs there, and keep going. Then tell the member each placeholder in plain words, with what you recommend: their own clip, a screenshot you can make, a picture you can find, or an animation you can build. Never export with a placeholder left in, unless the member says so.
 
 ## Pictures
 
-When the member mentions a brand, product, app, person or place, do your best to show the real thing, not only text: logos, photos, screenshots. A real picture beats a word on screen.
+When the member mentions a brand, product, app, person or place, do your best to show the real thing: logos, photos, screenshots. How pictures look and where they go comes from the style.
 
 - Logos: Simple Icons (`cdn.jsdelivr.net/npm/simple-icons@latest/icons/<name>.svg`, black, single colour) or Wikimedia Commons.
 - People and places: Wikimedia Commons (Wikipedia's lead photo is a good start) or official press kits. Prefer free licenses.
 - Save them in `public/images/` and list each source and license in `about.md`.
 - Cut-outs (people or objects without a background), when the style or the member wants them: remove the background locally, for example with `@imgly/background-removal-node`. Check the edges on a coloured background before using it.
-- Not sure it's the right person, logo or version? Or only a blurry one? Use text instead and tell the member.
+- Not sure it's the right person, logo or version? Or only a blurry one? Leave it out, or use a placeholder, and tell the member.
+
+## Styles
+
+A style is a `style.md` describing one look: fonts, sizes, colours, how captions read (case, punctuation, words at a time), named positions, layouts, pictures, pacing, cuts, motion and sound. Ready-made ones are in `styles/` in this skill. The member's own are in `styles/` in the main folder.
+
+- Ask which style to use when a video starts, unless `preferences.md` already says. Note it in the project's `about.md`.
+- Follow the style closely, but this file wins on safe zone and face, unless the member asks otherwise.
+- A member who wants to change a style gets their own copy in the main folder `styles/`, with a new name. Never edit a ready-made style for one member.
+
+### Copying a style from a video
+
+When a member shares videos they like and wants that look:
+
+1. Download them (`yt-dlp`; Instagram needs a logged-in browser's cookies, `--cookies-from-browser`). If one browser is blocked by the computer's privacy settings, try another.
+2. Transcribe them. What creators say often explains what they do.
+3. Look at one frame per second for the overview, then frame by frame around every cut and every new graphic. One frame per second hides all motion.
+4. Look at full-size crops of the text to read fonts and sizes.
+5. Ask the member about sound. Loudness alone can't tell music from room noise or sound effects.
+6. Write a `style.md` in the main folder `styles/<name>/`, like the ready-made ones: the system behind the look, so it works on a new recording. No creator names, no lines from their videos.
+7. Offer to try it on one of the member's recordings.
 
 ## Motion graphics
 
-Before designing or changing any title, graphic, overlay, transition or animation, read [references/motion-design.md](references/motion-design.md) in full. Captions are not motion graphics; the guide doesn't cover them.
+Before designing or changing any title, graphic, overlay, transition or animation, read [references/motion-design.md](references/motion-design.md) in full. Where the style says how something moves, the style wins. Captions are not motion graphics; the guide doesn't cover them.
 
 ## The member's preferences
 
@@ -88,7 +123,9 @@ When the member says what they like or dislike (caption look, cut style, music, 
 
 - Phone videos are often stored sideways with a rotation tag. Check it before reading the recording's width and height.
 - In phone videos the sound can start a split second after the picture. If words land late against the picture, check this first.
+- iPhone videos can carry a second, spatial sound track browsers can't play. Pick the normal track (`audioStreamIndex={0}`).
 - Joining clips: overlap the sound by a frame or two at each cut, from about half volume, or it clicks. Not at the very start or end. `<TransitionSeries>` remounts clips and makes the player stall on every cut.
+- Anything on screen keeps its look and place from its first frame to its last, unless the style animates it. If something else changes how it should look (a card arriving), decide once per item, not per frame, or it flips halfway.
 - The preview hides some export problems (layers out of line, unreadable files). Check graphics with `npx remotion still` at that moment, and pause the player before taking screenshots.
 - Graphics behind the member: the cut-out and the picture under it must both come from the same `@remotion/video-matting` run (its base layer), never the original recording. Otherwise they're drawn at slightly different sizes and edges show twice.
 - First and last frames: cut where they look away or down. Start and end on closed eyes if the audio allows.
