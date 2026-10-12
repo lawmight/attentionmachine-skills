@@ -56,6 +56,7 @@ Open it in your internal browser if you can, and give the member the link as soo
 
 - Anything the viewer must read or see (captions, titles, labels, calls to action, text on cards) stays fully inside, unless the member asks otherwise. Place it from the bands in `src/safe-zones.ts`, not by eye.
 - Other graphics may run past it and off the frame where that looks right. Use judgment. Don't fade them at the edge.
+- Keep the member's face clear, especially eyes and mouth, unless they ask otherwise. Framing differs a lot between recordings, so look at where the face sits first and place everything around it, as best you can.
 
 ## Motion graphics
 
