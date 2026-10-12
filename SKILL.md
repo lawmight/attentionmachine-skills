@@ -33,26 +33,34 @@ Members are online coaches, consultants and business owners, not developers. Avo
   - `transcripts/`: one file per recording;
   - `export/`: finished videos.
   The rest of the layout is up to you.
-- Remotion only reads files inside the project's `public/`. Hard-link each recording in (`ln`, no extra disk space). Symbolic links play in the preview but fail at export. If the recording is on another drive, copy it.
+- Remotion only reads files inside the project's `public/`. Hard-link each recording in (`ln`, no extra disk space). Symbolic links fail at export. If the recording is on another drive, copy it.
 
 ## Listening and sound
 
 - ElevenLabs does all the listening and sound: transcripts with word timings (Scribe), sound effects, music and voiceovers. Use it instead of the local Whisper options in the Remotion captions skill.
 - Every call costs the member credits. Transcribe each recording once and reuse the file.
 
-## Preview
+## Cutting
 
-Show work in the ready-made player in `assets/player/`, not Remotion Studio. Open Studio only when the member asks.
+- Choose what to keep as words from the transcript, never as times. Transcript word ends are often early, so cuts placed on them clip words. `node <this skill>/assets/snap-cuts.mjs words <transcript>` numbers the words; `node <this skill>/assets/snap-cuts.mjs <recording> <transcript> <keeps.json> <fps>` places every cut in the quiet around them and lays out the clips.
+- Use its clips as they are: `sound` as `<Audio>` clips, `picture` as muted `<Video>` clips. By default the picture switches 200 ms after the sound (a J-cut), so the next line is heard just before it's seen. A style or the member can change that with `--j-cut=<ms>`; `--j-cut=0` cuts both together.
+- Captions follow the sound. Graphics that arrive with a new shot follow the picture.
+- To cut out a pause, end one keep before it and start the next after it. Where it warns that a cut lands on sound, choose other words or listen to that cut.
+- How tight the cuts are comes from the style.
+- Before handing over, export only the sound (`--codec=wav`), transcribe it and compare it with the words you kept.
 
-1. Copy `assets/player/` into the project as `player/`, and `assets/safe-zones.ts` to `src/safe-zones.ts`.
-2. Create `src/preview.ts` exporting `preview = { component, durationInFrames, fps, width, height }`, usually the same values as the main composition.
-3. Install `@remotion/player` (same version as `remotion`), `vite`, `@vitejs/plugin-react` and `@types/react-dom` with `--legacy-peer-deps` (an optional part of the React plugin clashes otherwise), then run `npx vite player` in the project.
+## Showing the work
 
-Open it in your internal browser if you can, and give the member the link as soon as there's something to see. It reloads on every change, so it never autoplays and comes back paused on the same frame. On vertical videos, an "Instagram overlay" button shows what the app covers and what iPhones cut off at the sides; it starts off.
+Show the member exports, not a live preview. Open Remotion Studio only when they ask.
+
+- Check your own work with `npx remotion still` at the moments that matter, before exporting. An export takes a few minutes per minute of video.
+- Export into `export/`, with a new name each time (`-v2`, `-v3`) so the member can compare. Open the folder for them and say what changed.
 
 ## Where things go
 
-`assets/safe-zones.ts` holds the part of a vertical Reel that Instagram leaves visible on an iPhone, and the named positions below.
+`assets/safe-zones.ts` holds the part of a vertical Reel that Instagram leaves visible on an iPhone, and the named positions below. Copy it to `src/safe-zones.ts` in every vertical project.
+
+When the member asks why something isn't where they expected (lower, nearer the edge), explain what the app would cover there: the caption and account name at the bottom, the buttons on the right, the top bar, or the sides iPhones cut off.
 
 - Centre things on the screen, not on the safe zone. The zone is lopsided, and something centred in it looks off.
 - Text never leaves the zone, unless the member asks: captions, titles, labels, calls to action, text on cards. Place it from `src/safe-zones.ts`, not by eye. For centred text, `column()` gives the widest stretch around the screen's centre that stays inside.
@@ -128,9 +136,8 @@ When the member says what they like or dislike (caption look, cut style, music, 
 - Phone videos are often stored sideways with a rotation tag. Check it before reading the recording's width and height.
 - In phone videos the sound can start a split second after the picture. If words land late against the picture, check this first.
 - iPhone videos can carry a second, spatial sound track browsers can't play. Pick the normal track (`audioStreamIndex={0}`). At export, `@remotion/media` may fail to read such a file and fall back to the slower reader on its own; that's fine.
-- Never make lighter working copies of recordings. If 4K phone footage stutters in the preview, premount each clip (`premountFor`) and play the sound from the video itself, not from separate audio tracks. A preview tab in the background also stutters; that's not the video.
-- Joining clips: overlap the sound by a frame or two at each cut, from about half volume, or it clicks. Not at the very start or end. `<TransitionSeries>` remounts clips and makes the player stall on every cut.
+- Never make lighter working copies of recordings.
+- Joining clips: overlap the sound by a frame or two at each cut, from about half volume, or it clicks. Not at the very start or end.
 - Anything on screen keeps its look and place from its first frame to its last, unless the style animates it. If something else changes how it should look (a card arriving), decide once per item, not per frame, or it flips halfway.
-- The preview hides some export problems (layers out of line, unreadable files). Check graphics with `npx remotion still` at that moment, and pause the player before taking screenshots.
 - Graphics behind the member: the cut-out and the picture under it must both come from the same `@remotion/video-matting` run (its base layer), never the original recording. Otherwise they're drawn at slightly different sizes and edges show twice.
 - First and last frames: cut where they look away or down. Start and end on closed eyes if the audio allows.
