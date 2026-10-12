@@ -54,9 +54,15 @@ Open it in your internal browser if you can, and give the member the link as soo
 
 `assets/safe-zones.ts` holds the part of a vertical Reel that Instagram leaves visible on an iPhone.
 
-- Anything the viewer must read or see (captions, titles, labels, calls to action, text on cards) stays fully inside, unless the member asks otherwise. Place it from the bands in `src/safe-zones.ts`, not by eye.
-- Other graphics may run past it and off the frame where that looks right. Use judgment. Don't fade them at the edge.
+- Centre things on the screen, not on the safe zone. The zone is lopsided, and something centred in it looks off.
+- Text never leaves the zone, unless the member asks: captions, titles, labels, calls to action, text on cards. Place it from the bands in `src/safe-zones.ts`, not by eye. For centred text, use the widest column around the screen's centre that still fits the band.
+- Other graphics (pictures, cut-outs, shapes) may run past the zone and off the frame where that looks right. Use judgment. Don't fade them at the edge.
 - Keep the member's face clear, especially eyes and mouth, unless they ask otherwise. Framing differs a lot between recordings, so look at where the face sits first and place everything around it, as best you can.
+- When things compete for space, captions win: centred, inside the zone. Then pictures and cards, big enough to see on a phone. Everything else is a judgment call.
+
+## Captions
+
+- No punctuation. Apostrophes and hyphens inside words stay (don't, flip-flop).
 
 ## Pictures
 
