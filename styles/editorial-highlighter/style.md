@@ -11,12 +11,12 @@ Sizes are for a 1080×1920 frame.
 
 ## Colours
 
-| Name | Hex | Use |
-| --- | --- | --- |
-| Highlighter | `#E8F03A` | key words, big serif words, titles |
-| White | `#FFFFFF` | captions |
-| Ink | `#111111` | text on white labels |
-| Alarm red | `#C8102E` | tag pills, cross marks, handwritten notes |
+| Name        | Hex       | Use                                       |
+| ----------- | --------- | ----------------------------------------- |
+| Highlighter | `#E8F03A` | key words, big serif words, titles        |
+| White       | `#FFFFFF` | captions                                  |
+| Ink         | `#111111` | text on white labels                      |
+| Alarm red   | `#C8102E` | tag pills, cross marks, handwritten notes |
 
 No other colours in text or graphics. Pictures keep their own colours.
 
@@ -31,6 +31,7 @@ All free on Google Fonts.
 ## Text types
 
 ### Caption (most of the video)
+
 - Sans, white, about 44px, no box, no outline, a soft shadow at most.
 - Centred, about a quarter of the way down: above the speaker's head. If the speaker fills the frame, just below the chin instead.
 - 1–5 words, one line, two at most. The whole phrase appears at once, in time with the voice.
@@ -38,29 +39,35 @@ All free on Google Fonts.
 - Very rarely, the key word is also italic for a softer emphasis.
 
 ### Big word
+
 - Serif, Highlighter, 110–150px, often italic.
 - One to three words for an emotional or important beat. It replaces the caption on the same frame: the caption is gone the moment the first big word appears, and comes back only after the big word is gone. Never both at once.
 - Shows one word at a time as it's spoken. Each word lands somewhere new: left, centre, right, staggered like a poem.
 - About one every 5–10 seconds. Never two in a row.
 
 ### Label
+
 - Sans, Ink, about 36px, on a white box, 6px corners, tight padding.
 - Used instead of the caption when the top of the frame is busy (picture, chart, full-screen footage) or the background is too bright for white text.
 - Sits at chest height, centred.
 
 ### Tag pills
+
 - Sans, white, about 34px, on Alarm red, fully round ends, thin light outline.
 - For lists of things that are named: three to five words, popping in one by one, scattered loosely around the head.
 
 ### Cross list
+
 - Small white sans words, each with a red cross above.
 - For "no this, no that" lists. Items appear one by one, scattered.
 
 ### Side note
+
 - Hand font, Alarm red, small, tilted a few degrees.
 - A joke or aside next to a picture. Rare: once per video at most.
 
 ### Sticker word
+
 - Serif, Ink, on a white rectangle, no rounded corners.
 - One word stuck on top of a screenshot or someone else's clip.
 
