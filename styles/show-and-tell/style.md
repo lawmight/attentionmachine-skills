@@ -74,7 +74,7 @@ The main event: whenever a company, place, thing or scene is named, show a photo
 
 ## Sound
 
-- Voice first. If there's music, a faint bed far under the voice.
+- Voice only. No music, no sound effects. The tight cuts carry the rhythm.
 
 ## Ending
 
