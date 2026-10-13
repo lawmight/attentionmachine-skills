@@ -5,7 +5,7 @@ description: Edits raw recordings into videos for social media using Remotion. B
 
 # Attention Editor
 
-Optimized for Instagram Reels: vertical, 1080x1920, unless the user wants another shape.
+Optimized for Instagram Reels: vertical, 1080x1920, unless the user wants another aspect ratio.
 
 This skill is the engine: where things may go, what to check, and the few parts that ship ready-made. How things look, sound and move (fonts, sizes, colours, how captions read, pacing, cuts, animation) comes from a style. Without one, use your judgment.
 
