@@ -147,7 +147,7 @@ rounded:  { control: [px], card: [px], pill: 9999px }  # one radius per element 
 | Hero reveals | 600–900 ms |
 | Exits | 40–50% shorter than the entrance (Material 3: 400 ms in / 200 ms out) |
 
-Write timing in seconds first, then convert: `frames = s × fps`. A 0.6 s entrance is 18 frames at 30 fps. Label reference timestamps with the reference's own frame rate.
+Write timing in seconds first, then convert: `frames = s x fps`. A 0.6 s entrance is 18 frames at 30 fps. Label reference timestamps with the reference's own frame rate.
 
 ### Easing
 - **Entering:** ease-out. **Exiting:** ease-in. **Moving across the screen:** ease-in-out.
@@ -181,7 +181,7 @@ Damping ratio ζ = c / (2·√(k·m)):
 - **Living holds:** a slow 2% push, or 1.00 → 1.03 over 3 s. Constant-percentage changes compound across frames, so define the push from start to end.
 
 ### Beats
-- Frames per beat = fps × 60 / BPM. Compute each beat from time and round each one, never accumulate.
+- Frames per beat = fps x 60 / BPM. Compute each beat from time and round each one, never accumulate.
 - Cut on the beat, change the layout on the bar (every 4 beats).
 
 ### Reading windows
@@ -203,7 +203,7 @@ Use blur only on fast entrances, and let it settle with the movement. Never appl
 - **Sizes at 1080p:** body text at least 40 px at 16:9 and at least 48 px at 9:16. Headlines 96–160 px. Keep 5% safe margins.
 
 ### Canvas sizes
-16:9 1920×1080 · 1:1 1080×1080 · 4:5 1080×1350 · 9:16 1080×1920. Pick the canvas before the first frame.
+16:9 1920x1080 · 1:1 1080x1080 · 4:5 1080x1350 · 9:16 1080x1920. Pick the canvas before the first frame.
 
 ---
 

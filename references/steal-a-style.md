@@ -1,11 +1,11 @@
 # Stealing a style from a video
 
-A member shares a video they like and wants that look ("make a style out of this"). The result is a `style.md` in the main folder's `styles/<name>/`: the system behind the look, written so it works on the member's own recordings. It doesn't have to be a perfect copy, but the closer the better: someone who knows the original should recognise the look.
+A user shares a video they like and wants that look ("make a style out of this"). The result is a `style.md` in the main folder's `styles/<name>/`: the system behind the look, written so it works on the user's own recordings. It doesn't have to be a perfect copy, but the closer the better: someone who knows the original should recognise the look.
 
 ## Gather
 
 - Ask for two or three videos of the same look if they have them. One video mixes the system with one-offs.
-- One look, one style. Videos from the same account usually share one; the downloaded info file says who posted each. Different looks get separate styles, unless the member wants a mix.
+- One look, one style. Videos from the same account usually share one; the downloaded info file says who posted each. Different looks get separate styles, unless the user wants a mix.
 - Download with `yt-dlp` and keep the info file. Instagram needs a logged-in browser's cookies (`--cookies-from-browser`); if the computer's privacy settings block one browser, try another.
 - Keep the videos, info files and transcripts in the new style's folder, in `styles/<name>/reference/`, to compare against later.
 - Transcribe each video with word timings and audio events. Learn from what the creator says as well as what they do; some explain their own method.
@@ -70,7 +70,7 @@ Stacked titles and mixed-size compositions often sit very close. This is where c
 
 ## Sound
 
-Leave music out. Members pick their own.
+Leave music out. Users pick their own.
 
 Sound effects are an educated guess; say so in the style.
 
@@ -85,7 +85,7 @@ Same shape as the ready-made styles in this skill's `styles/`. Name it for the l
 Write the system, so it works on a recording that isn't theirs:
 
 - Sizes are targets that shrink to fit the safe zone. Keep the relationships (the big word about three times the caption).
-- Say what the source footage was like and what the look depends on (room above the head, a background dark enough for white text), so whoever edits knows what to keep when the member's recording differs.
+- Say what the source footage was like and what the look depends on (room above the head, a background dark enough for white text), so whoever edits knows what to keep when the user's recording differs.
 - Make content-dependent parts conditional: only when the speaker counts steps, names a thing, asks a question, waves.
 - A rule that needs footage or pictures says what to do when there are none.
 - Settle overlaps: which text wins when two could show at once, what leaves together, how long things hold. Read the whole file once for contradictions.
@@ -94,4 +94,4 @@ Write the system, so it works on a recording that isn't theirs:
 
 ## Try it
 
-Offer to try it on one of the member's recordings. Before showing, put stills of the edit next to frames from the original (in `reference/`) at the same kinds of moments, and compare fonts, sizes, colours, spacing and motion. Look at every moment with text on more than one line at full size. Where the `style.md` was unclear, fix the file, not just the edit.
+Offer to try it on one of the user's recordings. Before showing, put stills of the edit next to frames from the original (in `reference/`) at the same kinds of moments, and compare fonts, sizes, colours, spacing and motion. Look at every moment with text on more than one line at full size. Where the `style.md` was unclear, fix the file, not just the edit.

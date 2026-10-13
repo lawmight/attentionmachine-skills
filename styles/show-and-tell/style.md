@@ -7,7 +7,7 @@ description: Calm, credible talking head with small serif captions low in the fr
 
 Feels like a thoughtful friend telling a story and holding up photos as they go. Plain, warm and grown-up: no colour, no gimmicks, just pictures and words.
 
-Sizes are for a 1080×1920 frame.
+Sizes are for a 1080x1920 frame.
 
 ## Colours
 

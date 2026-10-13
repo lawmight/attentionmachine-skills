@@ -166,7 +166,7 @@ if (!target) {
 }
 const targetW = target.right - target.left;
 const targetH = target.bottom - target.top;
-console.log(`original: letters ${targetW}×${targetH}px, top left at ${bx + target.left},${by + target.top}`);
+console.log(`original: letters ${targetW}x${targetH}px, top left at ${bx + target.left},${by + target.top}`);
 
 const background = [0, 1, 2].map((ch) => {
   const values = [];

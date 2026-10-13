@@ -284,10 +284,10 @@ const clock = (frame) => clockOf(frame / fps);
 for (const word of keptPauses) console.error(`The pause after "${word}" stays in: there's no quiet in it to cut.`);
 joined.forEach((r, i) => {
   if (i > 0 && r.in.onSound) {
-    console.error(`${clock(sound[i].start)}: "${words[r.words[0]].text}" starts right on other sound, cut at the quietest moment. Ask the member to listen there.`);
+    console.error(`${clock(sound[i].start)}: "${words[r.words[0]].text}" starts right on other sound, cut at the quietest moment. Ask the user to listen there.`);
   }
   if (i < joined.length - 1 && r.out.onSound) {
-    console.error(`${clock(sound[i + 1].start)}: "${words[r.words[1]].text}" runs straight into other sound, cut at the quietest moment. Ask the member to listen there.`);
+    console.error(`${clock(sound[i + 1].start)}: "${words[r.words[1]].text}" runs straight into other sound, cut at the quietest moment. Ask the user to listen there.`);
   }
 });
 console.error(`${ranges.length} clips, ${ranges.length - 1} cuts, ${(durationInFrames / fps).toFixed(1)} s.`);

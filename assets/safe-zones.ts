@@ -1,4 +1,4 @@
-// Instagram Reels at 1080×1920, measured from a real iPhone screen: where text and key info
+// Instagram Reels at 1080x1920, measured from a real iPhone screen: where text and key info
 // stay readable, top to bottom. Tall phones trim about 98px off each side; the lower band
 // narrows for the like/comment/share column. Graphics behind the speaker may run past it.
 

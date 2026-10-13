@@ -1,6 +1,6 @@
 import { AbsoluteFill } from "remotion";
 
-// Stands in for footage or a picture the member doesn't have yet. Fills its parent.
+// Stands in for footage or a picture the user doesn't have yet. Fills its parent.
 export const Placeholder: React.FC<{ label: string }> = ({ label }) => (
   <AbsoluteFill
     style={{

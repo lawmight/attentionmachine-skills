@@ -7,7 +7,7 @@ description: Calm talking head, busy page. Small white captions above the head, 
 
 Feels like an annotated magazine page over a calm sit-down video. The speaker stays put; the page around them keeps changing.
 
-Sizes are for a 1080×1920 frame.
+Sizes are for a 1080x1920 frame.
 
 ## Colours
 

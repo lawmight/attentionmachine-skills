@@ -7,7 +7,7 @@ description: Soft, personal, handmade. Small lowercase lines above the head, big
 
 Feels like a hand-laid page from someone's diary. Warm footage, white type placed with care, and the camera often leaves the speaker to show what they're talking about.
 
-Sizes are for a 1080×1920 frame.
+Sizes are for a 1080x1920 frame.
 
 ## Colours
 

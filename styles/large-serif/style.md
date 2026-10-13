@@ -7,7 +7,7 @@ description: Calm, elegant list video. Full-body speaker, one white serif word a
 
 Feels like a classy magazine list come to life. The speaker stands in a styled room; the words are quiet, the structure is loud.
 
-Sizes are for a 1080×1920 frame.
+Sizes are for a 1080x1920 frame.
 
 ## Colours
 
