@@ -16,6 +16,7 @@ Members are online coaches, consultants and business owners, not developers. Avo
 ## Start of every chat that touches a video
 
 - Remotion's official skills (`remotion-dev/skills`) are the guide for all Remotion work. Install them in the main folder if they're missing (`npx skills add remotion-dev/skills`, project scope), otherwise update them (`npx skills update -p -y`).
+- Check `ffmpeg -version` runs. If not, install it with Homebrew (`brew install ffmpeg`). The tools in this skill need it; the copy inside Remotion is missing the sound filters they use.
 - Read `preferences.md` in the main folder, if it exists.
 - Check `ELEVENLABS_API_KEY` is in `.env` in the main folder. If not, walk the member through making one on elevenlabs.io, have them paste it in the chat, test it with a tiny transcription, and save it. Keys can be limited to some features, so test with a real request, not the account page. Never show the key back or copy it anywhere else.
 
@@ -39,18 +40,36 @@ Members are online coaches, consultants and business owners, not developers. Avo
 
 - ElevenLabs does all the listening and sound: transcripts with word timings (Scribe), sound effects, music and voiceovers. Use it instead of the local Whisper options in the Remotion captions skill.
 - Every call costs the member credits. Transcribe each recording once and reuse the file.
-- Recordings come in at very different loudness, some already too loud on the camera. Measure each one before editing (ffmpeg `ebur128=peak=true`) and give its sound one fixed volume that lands the video at −14 LUFS with peaks under −1.5 dB; go lower if the peaks would pass that. Measure the export the same way.
+- Transcribe with `scribe_v2`. When `preferences.md` lists names (the member, their business, products, people they mention), pass them as `keyterms` so they come back spelled right. That costs 20% more, so skip it when there are none.
+- Coughs, throat clears and laughs come back as sound tags (`audio_event`). The cut tool cuts out coughs and throat clears and keeps laughter.
+- Before captions go on screen, fix names the transcript got wrong against the member's names, and write spoken numbers as digits ("twenty five" → "25", "a hundred percent" → "100%"). Change nothing else.
+- Recordings come in at very different loudness. The cut tool's voice track already sits at −14 LUFS with peaks under −1.5 dB; keep music and effects under it. After every export, run `node <this skill>/scripts/finish-sound.mjs <export>`: it sets the whole video to that level and leaves the picture untouched.
 - Plans limit how many requests run at once, two on the free plan. Send at most two at a time. On a "too many concurrent requests" error, wait a moment and send it again.
 
 ## Cutting
 
-- Choose what to keep as words from the transcript, never as times. Transcript word ends are often early, so cuts placed on them clip words. `node <this skill>/assets/snap-cuts.mjs words <transcript>` numbers the words; `node <this skill>/assets/snap-cuts.mjs <recording> <transcript> <keeps.json> <fps>` places every cut in the quiet around them and lays out the clips.
-- Use its clips as they are, at full volume where they overlap: `sound` as `<Audio>` clips, `picture` as muted `<Video>` clips. `words` gives every kept word's frames in the video; time captions from it.
-- The defaults are tight: pauses over 350 ms are cut out, the words at each cut meet with no air between them, and the picture switches 200 ms after the sound (a J-cut), so the next line is heard just before it's seen. A style or the member can change them: `--max-pause=<ms>` (`off` keeps every pause), `--air=<ms>`, `--j-cut=<ms>` (`0` cuts picture and sound together).
-- Keep whole thoughts; leave out false starts, repeats and retakes. To cut a pause the tool keeps, end one keep before it and start the next after it.
+### What to keep
+
+Read the whole transcript first. Then choose:
+
+- Open on the strongest hook, never on warm-up. Speakers often re-record the hook at the end of a session, so look there too. Keeps play in the order you list them.
+- Keep the last complete take of each line, and never stitch one line from two attempts. A take the speaker rejects out loud ("no", "again", "scratch that") goes, and so does a correction mid-sentence, even without a pause. With several recordings, retakes often sit in the next one.
+- Leave out filler: um, uh, er, hmm and their versions in other languages; "like", "you know", "I mean", "basically" when they add nothing; doubled words; words cut off halfway.
+- The words on both sides of every cut must read as one sentence.
+- End on a landing. Exactly one call to action survives, and it closes the video.
+- Keep it under 2:50, never over 3:00; shorter is better. A length the member asks for wins.
+- Note where a picture, clip, number or zoom would earn its place: a thing named, a number said, something shown.
+- Then read the kept words end to end: nothing said twice, no filler, every join reads right, nothing refers to something not heard yet, no rejected take, opens on the hook, ends on the payoff.
+
+### Placing the cuts
+
+- Choose keeps as words, never as times. Transcript word ends are often early, so cuts placed on them clip words. `node <this skill>/scripts/snap-cuts.mjs words <transcript>` numbers the words and shows the sounds between them. `node <this skill>/scripts/snap-cuts.mjs <recording> <transcript> <keeps.json> <fps> --voice=public/voice.wav` places every cut in the quiet around them, lays out the clips, and writes the cut sound with a short fade at every cut so nothing clicks.
+- Play `voice.wav` as one `<Audio>` from the first frame, and `picture` as muted `<Video>` clips. `words` gives every kept word's frames in the video; time captions from it.
+- The defaults: pauses over 500 ms are cut out, 200 ms of the quiet at each cut plays on top of itself so the words flow, and the picture switches halfway through it. A style or the member can change them: `--max-pause=<ms>` (`off` keeps every pause), `--overlap=<ms>` (`max` makes the words almost touch), `--j-cut=<ms>` (the next line is heard this long before it's seen).
+- To cut a pause the tool keeps, end one keep before it and start the next after it.
 - Captions follow the sound. Graphics that arrive with a new shot follow the picture.
-- Where it warns that a cut lands on sound, choose other words if that helps; otherwise give the member those video times to listen to.
-- Before handing over, export only the sound (`--codec=wav`), transcribe it and compare it with the words you kept.
+- Where it warns that a cut lands on sound, keep the word next to it if the sentence still reads right, or use another take, and run it again. For whatever's left, give the member at most three video times to listen to, the ones most likely to be heard.
+- Before handing over, transcribe `voice.wav` and compare it with the words you kept: every word there, nothing extra.
 
 ## Showing the work
 
@@ -127,7 +146,7 @@ Before designing or changing any title, graphic, overlay, transition or animatio
 
 ## The member's preferences
 
-`preferences.md` in the main folder holds what's true about the member whatever the style: their usual style, their audience, their brand (colours, fonts, logo files), and things to avoid in every video. Save what they tell you there, in plain words. It's theirs to read and change. How a look looks, sounds and moves goes in a style, never here.
+`preferences.md` in the main folder holds what's true about the member whatever the style: their usual style, their audience, their brand (names to spell right, colours, fonts, logo files), and things to avoid in every video. Save what they tell you there, in plain words. It's theirs to read and change. How a look looks, sounds and moves goes in a style, never here.
 
 ## Known pitfalls
 

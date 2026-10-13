@@ -324,7 +324,7 @@ Other tools: **Three.js** (time from the frame number) · **Manim** (time-steppe
 - [ ] Only real assets. Every color, font, size, radius and shadow matches a DESIGN.md token; nothing is off-system.
 - [ ] Same component, same radius and type in every scene. The accent appears only in its assigned role.
 - [ ] Cuts and titles on a verified beat grid (kicks checked below 120 Hz). Sound peaks aligned to events.
-- [ ] Licensed music and file-based SFX with sources noted. Mix ≈ −16 LUFS, true peak < −4 dBFS, measured on the MP4, mono-safe.
+- [ ] Licensed music and file-based SFX with sources noted. Mix ≈ −14 LUFS, true peak < −1.5 dBFS, measured on the MP4, mono-safe.
 - [ ] Muted check passed, audio-only check passed, 5 headphone timestamps handed to the human.
 - [ ] Loop seam invisible. Same frame rendered twice is identical. Each format recomposed and checked.
 
@@ -343,7 +343,7 @@ Other tools: **Three.js** (time from the frame number) · **Manim** (time-steppe
 | Loop stutter / music drift | Rendered frame N / accumulated beat rounding |
 | Cuts feel off the music | Beat grid on the off-beat: re-check kicks below 120 Hz, shift grid or music start |
 | Click lands late | Align the file's loudest point, not its start |
-| Clipping on phones | Re-measure the MP4: −16 LUFS, true peak < −4 dBFS |
+| Clipping on phones | Re-measure the MP4: −14 LUFS, true peak < −1.5 dBFS |
 | Same error twice | Circuit breaker: stop and rethink |
 | Invented UI or numbers | Missing asset is a blocker: ask |
 
@@ -383,7 +383,7 @@ N. Close: poster-worthy final state (or matches frame 0 for loops).
 <sound>
 Music: [supplied / Mixkit track + license]. SFX from the project library: whoosh/pop/click/typing.
 Cues in the same timing file as visuals; align loudest points. Verify the beat grid below 120 Hz.
-VO > SFX > music (ducked). ~−16 LUFS, true peak < −4 dBFS, measured on the MP4.
+VO > SFX > music (ducked). ~−14 LUFS, true peak < −1.5 dBFS, measured on the MP4.
 </sound>
 
 <build>
