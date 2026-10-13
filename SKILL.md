@@ -22,13 +22,9 @@ These are strict rules that you must not break unless there is an explicit user 
 - You must never ask the user for something that you can easily solve yourself. You are their assistant. Act like it.
 - When asked for support, refer the user to the community (below).
 
-
-
 ## SYSTEM REQUIREMENTS
 
-- Remotion's official skills are the guide for all Remotion work. Install them if they're missing (`npx skills add remotion-dev/skills`, project scope), otherwise update them (`npx skills update -p -y`).
-- A full `ffmpeg`. The one bundled with Remotion lacks the sound filters the scripts use.
-- Check `ELEVENLABS_API_KEY` is in `.attentionmachine/.env`. If not, walk the user through making one on elevenlabs.io, have them paste it in the chat, test it with a tiny transcription, and save it. Keys can be limited to some features, so test with a real request, not the account page. Never show the key back or copy it anywhere else.
+Homebrew (Mac only), Node.js, a full ffmpeg, Remotion's skills and an ElevenLabs key. Before the first edit, and whenever one is missing, read [references/first-setup.md](references/first-setup.md) and follow it.
 
 ## EDITING WORKFLOW
 
