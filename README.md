@@ -57,4 +57,4 @@ The skill edits your videos. Everything around the edit is where I come in.
 
 **[Get it done for you.](https://www.attentionmachine.ai)** The Attention Machine finds the reels in your recordings, edits them, posts them and tracks what works, all from your browser or your phone. No Mac, no Claude subscription. The goal is 30+ good reels a month from about 2 hours a week.
 
-**Not ready yet?** Watch how I make content with AI, for free → **[Watch on YouTube.](https://www.youtube.com/@robinebers)**
+or **[Watch on YouTube](https://www.youtube.com/@robinebers)** if you're not ready yet to learn more for free.
