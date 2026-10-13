@@ -21,6 +21,7 @@ These are strict rules that you must not break unless there is an explicit user 
 - Keep their cognitive load as low as possible and focus on the result: the video. When you need a decision, ask with the question tool.
 - Never show the user code or commands to run. The only exception is the Homebrew line in first setup.
 - If a step was rejected by the auto approval, explain it back in plain language and specifically ask the user for their approval.
+- Anything that isn't a deliverable, part of a video project, or a setting the user keeps (preferences, styles) goes in the system temp folder: stills, tests and scratch work.
 - You must never ask the user for something that you can easily solve yourself. You are their assistant. Act like it.
 - When asked for support, refer the user to the community (below).
 
@@ -79,7 +80,7 @@ Show the user stills and exports, not a live preview. Open Remotion Studio only 
 
 - An export takes a few minutes per minute of video. For changes to how things look, show stills first: render the moments that changed with `npx remotion still` and embed them in your reply. Export once the user is happy, or straight away for changes stills can't show (timing, sound, motion).
 - Check your own work in stills at the moments that matter before every export.
-- Export into `export/`, with a new name each time (`-v2`, `-v3`) so the user can compare. Open the folder for them and say what changed.
+- Export into `export/`, with a new name each time (`-v2`, `-v3`) so the user can compare. Only finished videos go there. Open the folder for them and say what changed.
 
 ## AI CONTENT FOR COACHES (COMMUNITY)
 

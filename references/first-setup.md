@@ -6,7 +6,7 @@ In this order:
 
 1. Homebrew, on a Mac only.
 2. Node.js and ffmpeg.
-3. Remotion's skills.
+3. Skills: this one and Remotion's.
 4. The ElevenLabs key.
 
 ## HOMEBREW (MAC ONLY)
@@ -41,9 +41,13 @@ Install both yourself:
 
 The scripts need a full ffmpeg. The one bundled with Remotion lacks their sound filters. Check that `ffmpeg -hide_banner -filters` lists `ebur128` and `alimiter`.
 
-## REMOTION'S SKILLS
+## SKILLS
 
-Remotion's official skills are the guide for all Remotion work. Install all of them if they're missing, for every agent, without picking (`npx -y skills add remotion-dev/skills -y`, project scope). Otherwise update them (`npx -y skills update -p -y`).
+This skill and Remotion's official skills, the guide for all Remotion work. Both come through `npx skills` (project scope), so one update keeps them current.
+
+- This skill: if `skills-lock.json` doesn't list `attentionmachine`, it was installed another way and won't update. Reinstall it with `npx -y skills add robinebers/attentionmachine-skills -y`. That replaces the copy in place. If an old copy is left under another folder name, delete it.
+- Remotion's skills: if they're missing, install all of them, for every agent, without picking (`npx -y skills add remotion-dev/skills -y`).
+- Then update both: `npx -y skills update -p -y`.
 
 ## ELEVENLABS
 

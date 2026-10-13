@@ -51,7 +51,7 @@ Ash posted 1 reel edited by the machine and sold $822 worth of product + got 200
 
 Paste the prompt above into Claude Code or Codex. It installs everything and walks you through the first setup.
 
-Then start a new chat, say "edit this video" and give it the file. No settings to learn.
+Then say "edit this video" and give it the file. No settings to learn.
 
 ## Want more?
 
