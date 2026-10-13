@@ -1,6 +1,6 @@
 # Stealing a style from a video
 
-A user shares a video they like and wants that look ("make a style out of this"). The result is a `style.md` in `.attention-machine/styles/<name>/`: the system behind the look, written so it works on the user's own recordings. It doesn't have to be a perfect copy, but the closer the better: someone who knows the original should recognise the look.
+A user shares a video they like and wants that look ("make a style out of this"). The result is a `style.md` in `.attentionmachine/styles/<name>/`: the system behind the look, written so it works on the user's own recordings. It doesn't have to be a perfect copy, but the closer the better: someone who knows the original should recognise the look.
 
 ## Gather
 
