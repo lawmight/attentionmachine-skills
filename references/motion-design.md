@@ -248,7 +248,7 @@ Use blur only on fast entrances, and let it settle with the movement. Never appl
 
 **Mix.**
 - Priority: voiceover loudest, effects above the music, music ducked under speech.
-- Target about −16 LUFS integrated with true peak below −4 dBFS, so nothing clips after AAC compression or on a mono phone speaker.
+- Target about −14 LUFS integrated with true peak below −1.5 dBFS, so nothing clips after AAC compression or on a mono phone speaker.
 - Measure the **exported MP4** with ffmpeg's `ebur128`, not the WAV.
 
 **Verify.**

@@ -7,7 +7,7 @@ description: Edit a member's recordings into finished videos with Remotion, made
 
 Made for Instagram Reels: vertical, 1080×1920, unless the member wants another shape.
 
-This skill is the engine: where things may go, what to check, and the few parts that ship ready-made. How things look, sound and move (fonts, sizes, colours, how captions read, pacing, cuts, animation) comes from a style and the member's preferences. With neither, use your judgment.
+This skill is the engine: where things may go, what to check, and the few parts that ship ready-made. How things look, sound and move (fonts, sizes, colours, how captions read, pacing, cuts, animation) comes from a style. Without one, use your judgment.
 
 ## Talking to the member
 
@@ -39,7 +39,8 @@ Members are online coaches, consultants and business owners, not developers. Avo
 
 - ElevenLabs does all the listening and sound: transcripts with word timings (Scribe), sound effects, music and voiceovers. Use it instead of the local Whisper options in the Remotion captions skill.
 - Every call costs the member credits. Transcribe each recording once and reuse the file.
-- Some plans allow only one request at a time. Send calls one after another.
+- Recordings come in at very different loudness, some already too loud on the camera. Measure each one before editing (ffmpeg `ebur128=peak=true`) and give its sound one fixed volume that lands the video at −14 LUFS with peaks under −1.5 dB; go lower if the peaks would pass that. Measure the export the same way.
+- Plans limit how many requests run at once, two on the free plan. Send at most two at a time. On a "too many concurrent requests" error, wait a moment and send it again.
 
 ## Cutting
 
@@ -53,9 +54,10 @@ Members are online coaches, consultants and business owners, not developers. Avo
 
 ## Showing the work
 
-Show the member exports, not a live preview. Open Remotion Studio only when they ask.
+Show the member stills and exports, not a live preview. Open Remotion Studio only when they ask.
 
-- Check your own work with `npx remotion still` at the moments that matter, before exporting. An export takes a few minutes per minute of video.
+- An export takes a few minutes per minute of video. For changes to how things look, show stills first: render the moments that changed with `npx remotion still` and embed them in your reply. Export once the member is happy, or straight away for changes stills can't show (timing, sound, motion).
+- Check your own work in stills at the moments that matter before every export.
 - Export into `export/`, with a new name each time (`-v2`, `-v3`) so the member can compare. Open the folder for them and say what changed.
 
 ## Where things go
@@ -112,6 +114,8 @@ A style is a `style.md` describing one look: fonts, sizes, line spacing, colours
 - Ask which style to use when a video starts, unless `preferences.md` already says. Note it in the project's `about.md`.
 - Follow the style closely. Text stays in the safe zone whatever the style says, unless the member asks otherwise. The face stays clear unless the style or the member says to cover it.
 - A member who wants to change a style gets their own copy in the main folder `styles/`, with a new name. Never edit a ready-made style for one member.
+- A style the member builds from scratch while editing also goes in the main folder `styles/`.
+- When the member gives feedback on the look while using their own style, update that style. On a ready-made style, offer them their own copy.
 
 ### Stealing a style from a video
 
@@ -123,7 +127,7 @@ Before designing or changing any title, graphic, overlay, transition or animatio
 
 ## The member's preferences
 
-When the member says what they like or dislike (caption look, cut style, music, things to avoid), save it to `preferences.md` in the main folder, in plain words. It's theirs to read and change.
+`preferences.md` in the main folder holds what's true about the member whatever the style: their usual style, their audience, their brand (colours, fonts, logo files), and things to avoid in every video. Save what they tell you there, in plain words. It's theirs to read and change. How a look looks, sounds and moves goes in a style, never here.
 
 ## Known pitfalls
 
