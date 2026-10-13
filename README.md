@@ -58,3 +58,13 @@ The skill edits your videos. Everything around the edit is where I come in.
 **[Get it done for you.](https://www.attentionmachine.ai)** The Attention Machine takes the tech hassle away from you and adds content ideation, competitor research, posting on social media, your content analytics, and so much more. Just sign up, record, and the machine takes it from there.
 
 **[Watch on YouTube](https://www.youtube.com/@robinebers)** if you're not ready yet to learn more for free.
+
+## Agency looking to use this?
+
+The free license covers your own videos. Editing videos for clients, or building this into your own service, needs my OK first.
+
+Email me at rob@robinebers.com and tell me what you have in mind.
+
+## License
+
+Free to use for your own business under the [PolyForm Internal Use License 1.0.0](LICENSE). You can change your own copy. Sharing, publishing or selling it, changed or not, needs my written OK.
