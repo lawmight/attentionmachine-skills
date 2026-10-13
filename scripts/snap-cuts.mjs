@@ -10,7 +10,9 @@
 //     from (frame in the recording), length. words gives every kept word's
 //     frames in the video. Warns, with video times, about cuts that land on sound.
 //
-//   --voice=<file.wav> writes the cut sound, faded at every cut and set to -14 LUFS
+//   --voice=<file.wav> writes the cut sound, faded at every cut and set to -14 LUFS.
+//                      Put it in public/, play it as one <Audio> from frame 0 and the
+//                      picture clips as muted <Video>. Time captions from words.
 //   --max-pause=<ms>   pauses longer than this inside a keep are cut out (default 500; "off" keeps them)
 //   --overlap=<ms>     how much of the quiet at each cut plays on top of itself (default 200; "max" is all of it)
 //   --j-cut=<ms>       the picture switches this long after the sound (default 0)
