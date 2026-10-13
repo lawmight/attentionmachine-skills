@@ -1,4 +1,4 @@
-# Motion design
+# MOTION DESIGN REFERENCES
 
 How to make titles, graphics, overlays and transitions look directed, not generated. The style decides how things look and move. This guide fills in whatever the style leaves open. Captions aren't motion graphics and aren't covered here.
 
@@ -12,6 +12,7 @@ Animate only what helps the viewer follow the speaker:
 - a number said;
 - something shown: a screenshot, a step, a before and after;
 - a turn in the story: a new section, the payoff, the call to action.
+- supporting motion graphics for visual explainers
 
 When a moment has none of these, leave the speaker alone.
 
@@ -27,7 +28,7 @@ When a moment has none of these, leave the speaker alone.
 
 ## NUMBERS
 
-### Durations
+### DURATIONS
 
 | Use | Value |
 | --- | --- |
@@ -38,14 +39,14 @@ When a moment has none of these, leave the speaker alone.
 
 Write timing in seconds, then convert: frames = seconds x fps. A 0.6 s entrance is 18 frames at 30 fps.
 
-### Easing
+### EASING
 
 - Entering: ease-out. Exiting: ease-in. Moving across the screen: ease-in-out.
 - Zooms and pans, including punch-ins on the speaker, get the softest curves, such as ease-in-out-quart.
 - Linear only for rotation, progress bars and loops. Linear on a move is the quickest way to make it look like a render.
 - "Premium" usually means ease-out-quint on entrances, springs at a damping ratio of 0.8, and no overshoot on text.
 
-### Springs
+### SPRINGS
 
 Damping ratio = damping / (2 x √(stiffness x mass)).
 
@@ -62,22 +63,22 @@ Damping ratio = damping / (2 x √(stiffness x mass)).
 - Everything settles before the text that depends on it appears.
 - When tuning, keep the destination fixed and change one value at a time.
 
-### Stagger
+### STAGGER
 
 Letters 1 frame apart, words 60-120 ms, list items 40-80 ms. Start the next element when the previous one is 30-50% done.
 
-### Emphasis
+### EMPHASIS
 
 - Pop: scale 1.0 → 1.08 → 1.0 over 6 frames, peaking on the word or the beat.
 - Living hold: a slow push, 1.00 → 1.03 over 3 s. Define it from start to end, never as a percentage per frame, or it compounds.
 
-### Reading time
+### READING TIME
 
 - Count the hold from the moment the text is readable, not from when its entrance starts.
 - At least 0.3 s per word plus 0.5 s. Then read it aloud at normal speed, and extend any hold that ends before you finish.
 - Nothing near the text moves while it's being read. Blur only during a fast entrance, never on text being read.
 
-### Text
+### TEXT
 
 - Contrast at least 4.5:1 on every frame. No more than 3 flashes per second.
 - Under 8 words per line. Meaning never depends on colour alone.
@@ -145,7 +146,7 @@ Check stills at each graphic's first readable frame, its busiest moment and the 
 - Only real logos, pictures and numbers. Colours and fonts come from the style.
 - The video works muted. Sounds peak on their events.
 
-### When something looks off
+### WHEN SOMETHING LOOKS OFF
 
 | Symptom | Fix |
 | --- | --- |
