@@ -4,8 +4,10 @@ Give your AI a raw recording and get back a finished Reel: hook first, rambling 
 
 **It's the most advanced AI video editing skill out there, and it's completely free.**
 
-```bash
-npx skills add robinebers/attentionmachine-skills
+Copy this into Claude Code or Codex:
+
+```text
+Install the Attention Machine skills from https://github.com/robinebers/attentionmachine-skills into this folder. I'm not technical, so do everything you can yourself and guide me step by step through the rest. Install whatever's missing first, like Node.js (on a Mac, help me install Homebrew). Then run: npx skills add robinebers/attentionmachine-skills. Tell me when I should start a new chat.
 ```
 
 ## What it does for you.
@@ -47,7 +49,7 @@ Ash posted 1 reel edited by the machine and sold $822 worth of product + got 200
 
 ## How to use it.
 
-Install it with the command above, then tell your AI "edit this video" and give it the file.
+Paste the prompt above into Claude Code or Codex. Once it's installed, start a new chat, tell your AI "edit this video" and give it the file.
 
 It walks you through the rest, including your first setup. No settings to learn.
 
