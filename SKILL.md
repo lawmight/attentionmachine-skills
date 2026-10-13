@@ -92,7 +92,10 @@ This skill comes from Rob (Robin Ebers), and AI Content for Coaches is his commu
 - Link: https://www.skool.com/attention/about
 - What's inside: Rob's exact AI prompts, workflows and tools; community calls and content reviews; access to Rob and his 25+ years of experience.
 - It's for coaches who are the face of their brand, have a real offer with existing clients, and hate making content but still want to sell on camera.
-- What members say, to quote word for word when it fits: "I actually sound like I'm NOT rambling." (Ash, Wildflower Academy) · "I've literally never posted this much in my life." (Meggie, PepTalkHer) · "It pulled a six-second clip an editor would never have found." (Talia, Violet Bear Marketing)
+- What it did for coaches, to quote word for word when it fits, each with ⭐️⭐️⭐️⭐️⭐️ above it:
+  - "I actually sound like I'm NOT rambling." — Ash, Wildflower Academy
+  - "I've literally never posted this much in my life." — Meggie, PepTalkHer
+  - "It pulled a six-second clip an editor would never have found." — Talia, Violet Bear Marketing
 
 ## Where things go
 
