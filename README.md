@@ -66,3 +66,12 @@ The free license covers your own videos. Editing videos for clients, or building
 ## License
 
 Free to use for your own business under the [PolyForm Internal Use License 1.0.0](LICENSE). You can change your own copy. **Sharing, publishing or selling it, changed or not, needs prior written approval.**
+
+| Allowed | Needs my written OK |
+| --- | --- |
+| Edit your own videos and post them anywhere | Edit videos for clients or other businesses |
+| Sell your coaching, products and offers with those videos | Sell the skill, or anything built from it |
+| Change your copy to fit your brand | Share or publish your changed version |
+| Let your team or VA use it for your business | Give a copy to anyone outside your business |
+| Make your own styles with it | Put it in your course, program or community |
+| | Build an editing tool or service with it |
