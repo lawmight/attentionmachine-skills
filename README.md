@@ -1,4 +1,4 @@
-# The Attention Machine skills
+# The Attention Machine Skills
 
 Give your AI a raw recording and get back a finished Reel: hook first, rambling gone, captions on, sound ready for the feed. This is the same editing tech that runs [The Attention Machine](https://www.attentionmachine.ai), packed into a skill for Claude Code and Codex.
 
@@ -13,7 +13,7 @@ npx skills add robinebers/attentionmachine-skills
 You talk to the camera. It does the rest.
 
 - Opens on your best hook, even if you said it last
-- Keeps your best take and drops the retakes
+- Keeps your best take and drops the rambles
 - Cuts the ums, the long pauses and the coughs
 - Clean cuts, so no word gets clipped
 - Captions with your name and numbers spelled right
