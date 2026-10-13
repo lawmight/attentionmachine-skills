@@ -53,8 +53,8 @@ It walks you through the rest, including your first setup. No settings to learn.
 
 The skill edits your videos. Everything around the edit is where I come in.
 
-**[Join the community.](https://www.skool.com/attention/about)** In AI Content for Coaches you get my exact AI prompts, workflows and tools, community calls and content reviews, and access to me and my 25+ years of experience. It's for you if you're the face of your brand, you have a real offer with existing clients, and you hate making content but still want to sell on camera.
+**[Join the community.](https://www.skool.com/attention/about)** Best if you're the face of your brand, with a real offer, and you hate making content but sell on camera. Get access to my exact AI prompts, workflows and tools, weekly community calls, and to me and my 25+ years of experience.
 
-**[Get it done for you.](https://www.attentionmachine.ai)** The Attention Machine finds the reels in your recordings, edits them, posts them and tracks what works, all from your browser or your phone. No Mac, no Claude subscription. The goal is 30+ good reels a month from about 2 hours a week.
+**[Get it done for you.](https://www.attentionmachine.ai)** The Attention Machine takes the tech hassle away from you and adds content ideation, competitor research, posting on social media, your content analytics, and so much more. Just sign up, record, and the machine takes it from there.
 
-or **[Watch on YouTube](https://www.youtube.com/@robinebers)** if you're not ready yet to learn more for free.
+**[Watch on YouTube](https://www.youtube.com/@robinebers)** if you're not ready yet to learn more for free.
