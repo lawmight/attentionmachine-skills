@@ -7,7 +7,7 @@ Give your AI a raw recording and get back a finished Reel: hook first, rambling 
 Copy this into Claude Code or Codex:
 
 ```text
-Install The Attention Machine skills from https://github.com/robinebers/attentionmachine-skills into this folder. I'm not technical, so do as much as you can yourself. When done, follow its first setup guide and walk me through it, step by step.
+Install The Attention Machine skills from https://github.com/robinebers/attentionmachine-skills into this folder. I'm not technical, so get this done for me. When done, follow its first setup guide and walk me through it, step by step.
 ```
 
 ## What it does for you.
