@@ -1,6 +1,6 @@
 ---
 name: attention-editor
-description: Edit a member's recordings into finished videos with Remotion, made for Instagram Reels. Use when a member drops in recordings, asks for any video edit, caption, title, graphic, overlay, transition or animation in this folder, or wants to steal or copy the style of a video they like, or make a style out of one.
+description: Edits raw recordings into videos for social media using Remotion. Best for Instagram Reels (9:16), but also suitable for other platforms like TikTok, LinkedIn and YouTube (incl. 16:9). Use for any video edit, caption, title, graphic, overlay, transition or animation, or to copy the style of a video.
 ---
 
 # Attention Editor
