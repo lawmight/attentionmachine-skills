@@ -4,7 +4,7 @@ A user shares a video they like and wants that look ("make a style out of this")
 
 ## GATHER
 
-- Ask for two or three videos of the same look if they have them. One video mixes the system with one-offs.
+- Two or three videos of the same look beat one, because one video mixes the system with one-offs. Use every one the user shared. If there's only one, ask once whether they have more, then carry on either way.
 - One look, one style. Videos from the same account usually share one; the downloaded info file says who posted each. Different looks get separate styles, unless the user wants a mix.
 - Download with `yt-dlp` and keep the info file. Instagram needs a logged-in browser's cookies (`--cookies-from-browser`); if the computer's privacy settings block one browser, try another.
 - Keep the videos, info files and transcripts in `.attentionmachine/styles/<name>/reference/`, to compare against later.
@@ -94,4 +94,4 @@ Write the system, so it works on a recording that isn't theirs:
 
 ## TRY IT
 
-Offer to try it on one of the user's recordings. Before showing, put stills of the edit next to frames from the original (in `reference/`) at the same kinds of moments, and compare fonts, sizes, colours, spacing and motion. Look at every moment with text on more than one line at full size. Where the `style.md` was unclear, fix the file, not just the edit.
+Try it on one of the user's recordings right away, the latest one unless another fits better. Before showing, put stills of the edit next to frames from the original (in `reference/`) at the same kinds of moments, and compare fonts, sizes, colours, spacing and motion. Look at every moment with text on more than one line at full size. Where the `style.md` was unclear, fix the file, not just the edit.
