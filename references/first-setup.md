@@ -43,19 +43,20 @@ The scripts need a full ffmpeg. The one bundled with Remotion lacks their sound 
 
 ## REMOTION'S SKILLS
 
-Remotion's official skills are the guide for all Remotion work. Install them if they're missing (`npx skills add remotion-dev/skills`, project scope), otherwise update them (`npx skills update -p -y`).
+Remotion's official skills are the guide for all Remotion work. Install all of them if they're missing, for every agent, without picking (`npx -y skills add remotion-dev/skills -y`, project scope). Otherwise update them (`npx -y skills update -p -y`).
 
 ## ELEVENLABS
 
-Check that `ELEVENLABS_API_KEY` is in `.attentionmachine/.env`. If not:
+Check that `ELEVENLABS_API_KEY` is in `.attentionmachine/.env`. If not, give the user all the steps in one message, ending with "paste the key here":
 
-1. Have the user sign up on elevenlabs.io. The free plan is enough to start.
-2. Have them make an API key in the settings, with access to speech to text, text to speech, sound effects and music, and paste it in the chat.
-3. Test it with a tiny transcription. Keys can be limited to some features, so test with a real request, not the account page.
-4. Save it in `.attentionmachine/.env`.
+1. Sign up at [elevenlabs.io](https://elevenlabs.io). The free plan is enough to start.
+2. Open [API keys](https://elevenlabs.io/app/developers/api-keys) and create a key with access to Speech to Text, Text to Speech, Sound Effects and Music.
+3. Paste it here.
+
+Then save it in `.attentionmachine/.env` and test it with a few spoken words through `scribe_v2`. Keys can be limited to some features, so test with a real request, not the account page.
 
 Never show the key back or copy it anywhere else.
 
 ## WHEN IT'S DONE
 
-Tell the user in one line that setup is done, and carry on with their video. Don't list what you installed.
+Tell the user in one line that setup is done, and carry on with their video. If they haven't shared one yet, ask for it right here. No new chat needed. Don't list what you installed or what was already there.
