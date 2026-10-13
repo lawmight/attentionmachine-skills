@@ -38,6 +38,7 @@ Unbounded is very wide. Size it to fit the safe zone, not to a fixed number.
 ### CAPTION (THE WHOLE VIDEO)
 
 - Poppins Bold, white, about 46px, one line, at most about 22 characters.
+- On a small dark pill hugging the text: dark at 15% opacity, about 0.4em padding each side, corners about 0.25em.
 - Short phrases of two to five words, the whole phrase at once, in time with the voice.
 - All lowercase, even at the start of a sentence; only names, brands and "I" keep a capital. Never any punctuation (no full stops, commas or question marks). Apostrophes stay: "don't", "it's".
 - Centred, **bottom**. Stays put the whole video, also under pictures.
@@ -93,9 +94,10 @@ Whenever a company, app, place, product or scene is named, show it: a photo, or 
 
 ## MOTION
 
-- Everything cuts in and out: captions, pictures, stacks, numbers, splits. No fades, slides or pops.
-- Two exceptions, both full of motion: the flying logos around the title, and a closing gag when the last line is about money (dollar bills raining down the whole frame).
-- Stack words appear one by one, cut in.
+- Captions and splits cut in and out.
+- Everything else arrives with a small, quick entrance (a pop, a settle) and acts out the idea: lists build up item by item on the spoken word, what gets cut leaves, before turns into after. Never slow or floaty.
+- Headlines land with a snap and then hold still while they're read. Stack words arrive one by one.
+- Two bigger moments: the flying logos around the title, and a closing gag when the last line is about money (dollar bills raining down the whole frame).
 
 ## SOUND
 
@@ -109,6 +111,6 @@ Whenever a company, app, place, product or scene is named, show it: a photo, or 
 ## DON'T
 
 - No yellow anywhere except the payoff.
-- No boxes behind text except the blue headline blocks, no outlines.
-- No animated text or transitions.
+- No boxes behind text except the blue headline blocks and the caption pill, no outlines.
+- No moving text while it's read, no fades, no transitions between shots.
 - No cartoons, clip art or emojis. Real logos and app icons are welcome.

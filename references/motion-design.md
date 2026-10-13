@@ -16,6 +16,8 @@ Animate only what helps the viewer follow the speaker:
 
 When a moment has none of these, leave the speaker alone.
 
+When something earns a graphic, the graphic acts out the idea instead of just showing the thing: it builds piece by piece on the words, drops what gets cut, turns the before into the after. Nothing is pasted on. Everything that arrives gets a small, tasteful entrance and a little life while it holds.
+
 ## PRINCIPLES
 
 1. Numbers, not adjectives. "Premium" becomes curves and spring values. "Punchy" becomes durations and beats.
@@ -25,6 +27,7 @@ When a moment has none of these, leave the speaker alone.
 5. Weight by size. Small things snap, panels settle, headlines arrive fast and then hold. If everything bounces, nothing feels precise.
 6. Restraint. The style's colours and fonts only, and one accent with one job.
 7. Only real things. Never invent screens, logos, numbers or quotes. When something's missing, use a placeholder.
+8. Go big or don't move. A zoom into proof (a screenshot, a result) goes as big as the safe zone allows and highlights the line that matters. A timid zoom reads as a mistake.
 
 ## NUMBERS
 
