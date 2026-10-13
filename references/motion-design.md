@@ -4,7 +4,7 @@ How to make titles, graphics, overlays and transitions look directed, not genera
 
 The generic AI look lives in the decisions you leave open. Swap every adjective for a number, a state or a named rule.
 
-## What earns motion
+## WHAT EARNS MOTION
 
 Animate only what helps the viewer follow the speaker:
 
@@ -15,7 +15,7 @@ Animate only what helps the viewer follow the speaker:
 
 When a moment has none of these, leave the speaker alone.
 
-## Principles
+## PRINCIPLES
 
 1. Numbers, not adjectives. "Premium" becomes curves and spring values. "Punchy" becomes durations and beats.
 2. One thing owns the screen at a time. Everything else waits, dims to 40% or holds still. After every move the viewer knows where to look.
@@ -25,7 +25,7 @@ When a moment has none of these, leave the speaker alone.
 6. Restraint. The style's colours and fonts only, and one accent with one job.
 7. Only real things. Never invent screens, logos, numbers or quotes. When something's missing, use a placeholder.
 
-## Numbers
+## NUMBERS
 
 ### Durations
 
@@ -85,20 +85,20 @@ Letters 1 frame apart, words 60-120 ms, list items 40-80 ms. Start the next elem
 - Place text from `src/safe-zones.ts`, not by margin.
 - Test with the longest text you expect. If a headline wraps to 3 lines, shorten the text or widen the box before touching the motion.
 
-## Composition
+## COMPOSITION
 
 - The main element is the largest, brightest or most contrasted thing on screen.
 - The first 2 s carry the hook, and frame 0 is already a finished picture.
 - The last frame works as a still.
 - Each aspect ratio is its own layout. Never crop a 16:9 design into 9:16. 9:16 gets fewer elements, stacked.
 
-## Transitions
+## TRANSITIONS
 
 - Default to a straight cut. Use match cuts and wipes only where they mean something.
 - After changing one part, check the cuts on both sides of it before watching the whole video.
 - When a transition overlaps two parts, count the overlap in the total length.
 
-## Sound
+## SOUND
 
 Graphics must work with the sound off, because feeds start muted. Add sound once the picture is approved.
 
@@ -109,7 +109,7 @@ Graphics must work with the sound off, because feeds start muted. Add sound once
 - With music: frames per beat = fps x 60 / BPM. Work out each beat from its time and round it, never add beats up. Bring in titles and cuts on the beat. Beat detection can lock onto the off-beat, so check the kicks on a waveform below 120 Hz and shift the grid if they don't line up.
 - Mix: the voice loudest, effects above the music, music ducked under speech. `scripts/finish-sound.mjs` sets the final loudness.
 
-## Ban list
+## BAN LIST
 
 Unless the style asks for them:
 
@@ -126,13 +126,13 @@ Unless the style asks for them:
 
 After each first render, add whatever generic look crept in anyway.
 
-## Building it
+## BUILDING IT
 
 - Every frame depends only on its frame number. No timers, CSS transitions, `requestAnimationFrame` or state carried between frames. Seed any randomness, and load assets before they appear.
 - Keep text, numbers, timings and sound cues in one data file, so "slow down the second title" changes one value and nothing else moves.
 - Frames inside a `<Sequence>` count from its start: frame 30 in a sequence that starts at 120 is frame 150 in the video.
 
-## Checking your work
+## CHECKING YOUR WORK
 
 Check stills at each graphic's first readable frame, its busiest moment and the last frame of the video.
 
