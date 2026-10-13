@@ -61,10 +61,8 @@ The skill edits your videos. Everything around the edit is where I come in.
 
 ## Agency looking to use this?
 
-The free license covers your own videos. Editing videos for clients, or building this into your own service, needs my OK first.
-
-Email me at rob@robinebers.com and tell me what you have in mind.
+The free license covers your own videos. Editing videos for clients, or building this into your own service, needs my OK first. Email me at [rob@robinebers.com](mailto:rob@robinebers.com) and tell me what you have in mind.
 
 ## License
 
-Free to use for your own business under the [PolyForm Internal Use License 1.0.0](LICENSE). You can change your own copy. Sharing, publishing or selling it, changed or not, needs my written OK.
+Free to use for your own business under the [PolyForm Internal Use License 1.0.0](LICENSE). You can change your own copy. **Sharing, publishing or selling it, changed or not, needs prior written approval.**
