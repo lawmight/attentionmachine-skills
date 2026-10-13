@@ -7,7 +7,7 @@ Give your AI a raw recording and get back a finished Reel: hook first, rambling 
 Copy this into Claude Code or Codex:
 
 ```text
-Install the Attention Machine skills from https://github.com/robinebers/attentionmachine-skills into this folder. I'm not technical, so do everything you can yourself and guide me step by step through the rest. Install whatever's missing first, like Node.js (on a Mac, help me install Homebrew). Then run: npx skills add robinebers/attentionmachine-skills. Tell me when I should start a new chat.
+Install The Attention Machine skills from https://github.com/robinebers/attentionmachine-skills into this folder. I'm not technical, so do as much as you can yourself. When done, follow its first setup guide and walk me through it, step by step.
 ```
 
 ## What it does for you.
@@ -49,9 +49,9 @@ Ash posted 1 reel edited by the machine and sold $822 worth of product + got 200
 
 ## How to use it.
 
-Paste the prompt above into Claude Code or Codex. Once it's installed, start a new chat, tell your AI "edit this video" and give it the file.
+Paste the prompt above into Claude Code or Codex. It installs everything and walks you through the first setup.
 
-It walks you through the rest, including your first setup. No settings to learn.
+Then start a new chat, say "edit this video" and give it the file. No settings to learn.
 
 ## Want more?
 
