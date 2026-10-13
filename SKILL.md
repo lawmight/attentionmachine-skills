@@ -155,9 +155,9 @@ A style is a `style.md` describing one look: fonts, sizes, line spacing, colours
 - A style the user builds from scratch while editing also goes in `.attentionmachine/styles/`.
 - When the user gives feedback on the look while using their own style, update that style. On a ready-made style, offer them their own copy.
 
-### STEALING A STYLE FROM A VIDEO
+### COPYING A STYLE FROM A VIDEO
 
-When a user shares videos they like and wants that look ("steal this style", "make a style out of this", "copy this"), read [references/steal-a-style.md](references/steal-a-style.md) in full and follow it. It ends in a new `style.md` in `.attentionmachine/styles/`.
+When a user shares videos they like and wants that look ("steal this style", "make a style out of this", "copy this"), read [references/copy-style.md](references/copy-style.md) in full and follow it. It ends in a new `style.md` in `.attentionmachine/styles/`.
 
 ## MOTION GRAPHICS
 

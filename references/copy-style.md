@@ -1,4 +1,4 @@
-# STEALING A STYLE FROM A VIDEO
+# COPYING A STYLE FROM A VIDEO
 
 A user shares a video they like and wants that look ("make a style out of this"). The result is a `style.md` in `.attentionmachine/styles/<name>/`: the system behind the look, written so it works on the user's own recordings. It doesn't have to be a perfect copy, but the closer the better: someone who knows the original should recognise the look.
 
@@ -7,7 +7,7 @@ A user shares a video they like and wants that look ("make a style out of this")
 - Ask for two or three videos of the same look if they have them. One video mixes the system with one-offs.
 - One look, one style. Videos from the same account usually share one; the downloaded info file says who posted each. Different looks get separate styles, unless the user wants a mix.
 - Download with `yt-dlp` and keep the info file. Instagram needs a logged-in browser's cookies (`--cookies-from-browser`); if the computer's privacy settings block one browser, try another.
-- Keep the videos, info files and transcripts in the new style's folder, in `styles/<name>/reference/`, to compare against later.
+- Keep the videos, info files and transcripts in `.attentionmachine/styles/<name>/reference/`, to compare against later.
 - Transcribe each video with word timings and audio events. Learn from what the creator says as well as what they do; some explain their own method.
 - Write findings into `reference/notes.md` as you go, with the times they show up. A long look loses details otherwise.
 
@@ -42,7 +42,7 @@ Then everything else: pictures (what kind, size, edges, placement, how they matc
 
 - From the full-size crop, name what makes the type distinctive: serif or not, weight, width (condensed or wide), contrast between thick and thin strokes, how tall the small letters are, rounded or sharp ends, and telling letters (a, g, t, y, numbers).
 - Shortlist several free look-alikes from Google Fonts. Many have weight and width settings; use them.
-- Compare them on one sheet: `node <this skill>/scripts/compare-fonts.mjs` draws the same words in each font under a crop of the original, at the same width, and says how much narrower or wider each is. Its first lines say how to set it up and run it. Pick by eye.
+- Compare them on one sheet: `scripts/compare-fonts.mjs` draws the same words in each font under a crop of the original, at the same width, and says how much narrower or wider each is. Its first lines say how to set it up and run it. Pick by eye.
 - Caption tools often add extra slant, letter spacing or a thicker stroke on top of the font. Try those before ruling out a font with the right shapes.
 - Check numbers, punctuation and special characters in the pick. Some script fonts make "2." look like "Q.".
 - Stop once a pick matches the weight, the width and the telling letters. Use the same family for the other kinds of text unless they clearly differ. Don't hunt for the paid original: if you recognise it, name it, but the style uses the closest free one.
