@@ -45,7 +45,7 @@ The scripts need a full ffmpeg. The one bundled with Remotion lacks their sound 
 
 This skill and Remotion's official skills, the guide for all Remotion work. Both come through `npx skills` (project scope), so one update keeps them current.
 
-- This skill: if `skills-lock.json` doesn't list `attentionmachine`, it was installed another way and won't update. Reinstall it with `npx -y skills add robinebers/attentionmachine-skills -y`. That replaces the copy in place. If an old copy is left under another folder name, delete it.
+- This skill: if `skills-lock.json` doesn't list `attention-machine`, it was installed another way and won't update. Reinstall it with `npx -y skills add robinebers/attentionmachine-skills -y`. That replaces the copy in place. If an old copy is left under another folder name (like `attentionmachine`), delete it.
 - Remotion's skills: if they're missing, install all of them, for every agent, without picking (`npx -y skills add remotion-dev/skills -y`).
 - Then update both: `npx -y skills update -p -y`.
 

@@ -135,11 +135,12 @@ After each first render, add whatever generic look crept in anyway.
 
 ## CHECKING YOUR WORK
 
-Check stills at each graphic's first readable frame, its busiest moment and the last frame of the video.
+Check stills at each graphic's first readable frame, its busiest moment and the last frame of the video. They go on the version's check sheet (see SHOWING THE WORK in `SKILL.md`).
 
 - The hook lands in the first 2 s. The first and last frames work as stills.
 - One thing owns the screen at a time.
-- Every hold survives a read-aloud. Text is still, sharp and at 4.5:1 or better.
+- Every hold survives a read-aloud. Text is still, sharp and at 4.5:1 or better, worked out from the colours.
+- Graphics start and end on a cut or a spoken word, never a few frames over a cut.
 - No 3-line headlines. Everything reads at phone size.
 - Motion settles before the text that depends on it. Overshoot only on position and size.
 - Easing matches direction. No linear moves.
