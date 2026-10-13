@@ -9,16 +9,22 @@ Optimized for Instagram Reels: vertical, 1080x1920, unless the user wants anothe
 
 This skill is the engine: where things may go, what to check, and the few parts that ship ready-made. How things look, sound and move (fonts, sizes, colours, how captions read, pacing, cuts, animation) comes from a style. Without one, use your judgment.
 
-## Talking to the user
+The user's own things live in `.attention-editor/` in the main folder: `preferences.md`, their own `styles/`, and `.env` with their keys.
 
-Users are online coaches, consultants and business owners, not developers. Avoid technical language. Use short, ADHD-friendly sentences and simple lists. Keep their cognitive load as low as possible and focus on the result: the video. When you need a decision, ask with the question tool.
+## STRICT RULES
 
-## Start of every chat that touches a video
+These are strict rules that you must not break unless there is an explicit user ask for it. 
 
-- Remotion's official skills (`remotion-dev/skills`) are the guide for all Remotion work. Install them in the main folder if they're missing (`npx skills add remotion-dev/skills`, project scope), otherwise update them (`npx skills update -p -y`).
-- Check `ffmpeg -version` runs. If not, install it with Homebrew (`brew install ffmpeg`). The tools in this skill need it; the copy inside Remotion is missing the sound filters they use.
-- Read `preferences.md` in the main folder, if it exists.
-- Check `ELEVENLABS_API_KEY` is in `.env` in the main folder. If not, walk the user through making one on elevenlabs.io, have them paste it in the chat, test it with a tiny transcription, and save it. Keys can be limited to some features, so test with a real request, not the account page. Never show the key back or copy it anywhere else.
+- Always read `.attention-editor/preferences.md`, if it exists. These are explicit user overrides that you must acknowledge.
+- Avoid technical language. Users are online coaches, consultants and business owners, not developers. Use short, ADHD-friendly sentences and simple lists.
+- Keep their cognitive load as low as possible and focus on the result: the video. When you need a decision, ask with the question tool.
+- You must never ask the user for something that you can easily solve yourself. You are their assistant. Act like it.
+
+## SYSTEM REQUIREMENTS
+
+- Remotion's official skills are the guide for all Remotion work. Install them if they're missing (`npx skills add remotion-dev/skills`, project scope), otherwise update them (`npx skills update -p -y`).
+- Check `ffmpeg -version` runs. If not, install it with Homebrew if on Mac (`brew install ffmpeg`) or OS-appropriate ways on Windows/Linux. The one bundled with Remotion is missing the sound filters this skill uses.
+- Check `ELEVENLABS_API_KEY` is in `.attention-editor/.env`. If not, walk the user through making one on elevenlabs.io, have them paste it in the chat, test it with a tiny transcription, and save it. Keys can be limited to some features, so test with a real request, not the account page. Never show the key back or copy it anywhere else.
 
 ## When recordings come in
 
@@ -128,17 +134,17 @@ When the user mentions a brand, product, app, person or place, do your best to s
 
 ## Styles
 
-A style is a `style.md` describing one look: fonts, sizes, line spacing, colours, how captions read (case, punctuation, words at a time), named positions, layouts, pictures, pacing, cuts, motion and sound. Ready-made ones are in `styles/` in this skill. The user's own are in `styles/` in the main folder.
+A style is a `style.md` describing one look: fonts, sizes, line spacing, colours, how captions read (case, punctuation, words at a time), named positions, layouts, pictures, pacing, cuts, motion and sound. Ready-made ones are in `styles/` in this skill. The user's own are in `.attention-editor/styles/`.
 
 - Ask which style to use when a video starts, unless `preferences.md` already says. Note it in the project's `about.md`.
 - Follow the style closely. Text stays in the safe zone whatever the style says, unless the user asks otherwise. The face stays clear unless the style or the user says to cover it.
-- A user who wants to change a style gets their own copy in the main folder `styles/`, with a new name. Never edit a ready-made style for one user.
-- A style the user builds from scratch while editing also goes in the main folder `styles/`.
+- A user who wants to change a style gets their own copy in `.attention-editor/styles/`, with a new name. Never edit a ready-made style for one user.
+- A style the user builds from scratch while editing also goes in `.attention-editor/styles/`.
 - When the user gives feedback on the look while using their own style, update that style. On a ready-made style, offer them their own copy.
 
 ### Stealing a style from a video
 
-When a user shares videos they like and wants that look ("steal this style", "make a style out of this", "copy this"), read [references/steal-a-style.md](references/steal-a-style.md) in full and follow it. It ends in a new `style.md` in the main folder's `styles/`.
+When a user shares videos they like and wants that look ("steal this style", "make a style out of this", "copy this"), read [references/steal-a-style.md](references/steal-a-style.md) in full and follow it. It ends in a new `style.md` in `.attention-editor/styles/`.
 
 ## Motion graphics
 
@@ -146,7 +152,7 @@ Before designing or changing any title, graphic, overlay, transition or animatio
 
 ## The user's preferences
 
-`preferences.md` in the main folder holds what's true about the user whatever the style: their usual style, their audience, their brand (names to spell right, colours, fonts, logo files), and things to avoid in every video. Save what they tell you there, in plain words. It's theirs to read and change. How a look looks, sounds and moves goes in a style, never here.
+`.attention-editor/preferences.md` holds what's true about the user whatever the style: their usual style, their audience, their brand (names to spell right, colours, fonts, logo files), and things to avoid in every video. Save what they tell you there, in plain words. How a look looks, sounds and moves goes in a style, never here.
 
 ## Known pitfalls
 
