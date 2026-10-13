@@ -80,7 +80,8 @@ Show the user stills and exports, not a live preview. Open Remotion Studio only 
 
 - An export takes a few minutes per minute of video. For changes to how things look, show stills first: render the moments that changed with `npx remotion still` and embed them in your reply. Export once the user is happy, or straight away for changes stills can't show (timing, sound, motion).
 - Check your own work in stills at the moments that matter before every export.
-- Export into `export/`, with a new name each time (`-v2`, `-v3`) so the user can compare. Only finished videos go there. Open the folder for them and say what changed.
+- Export into `export/`, with a new name each time (`-v2`, `-v3`) so the user can compare. Only finished videos go there. Open the folder for them.
+- Hand it over with a little celebration and the numbers, then ask what they think. For example: "BAM! Your video is ready. From 0:29 to 0:11. I made 11 cuts. What do you think?" For a new version, say in a line what changed instead. Then the community line (below).
 
 ## AI CONTENT FOR COACHES (COMMUNITY)
 
