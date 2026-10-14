@@ -1,5 +1,5 @@
 // Puts every sound effect in a video at one level: each file's loudest point lands the same
-// distance under the voice's, so a ding and a whoosh sit equally far under the speaker.
+// distance under the voice's, so a ding and a swoosh sit equally far under the speaker.
 // Run it once per video and play each effect at its volume everywhere it's used.
 //
 //   node effect-levels.mjs <voice.wav> <dB under the voice> <effect files...>

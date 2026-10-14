@@ -11,8 +11,8 @@ Animate only what helps the viewer follow the speaker:
 - a thing named: a logo, a product, a person;
 - a number said;
 - something shown: a screenshot, a step, a before and after;
-- a turn in the story: a new section, the payoff, the call to action.
-- supporting motion graphics for visual explainers
+- a turn in the story: a new section, the payoff, the call to action;
+- an explainer: a process or a tool that a graphic makes clear.
 
 When a moment has none of these, leave the speaker alone.
 
@@ -33,12 +33,14 @@ When something earns a graphic, the graphic acts out the idea instead of just sh
 
 ### Durations
 
-| Use | Value |
-| --- | --- |
-| Small feedback (a tick, a highlight) | 100-200 ms |
-| Moves | 200-500 ms |
-| Main reveals | 600-900 ms |
-| Exits | 40-50% shorter than the entrance |
+
+| Use                                  | Value                            |
+| ------------------------------------ | -------------------------------- |
+| Small feedback (a tick, a highlight) | 100-200 ms                       |
+| Moves                                | 200-500 ms                       |
+| Main reveals                         | 600-900 ms                       |
+| Exits                                | 40-50% shorter than the entrance |
+
 
 Write timing in seconds, then convert: frames = seconds x fps. A 0.6 s entrance is 18 frames at 30 fps.
 
@@ -53,12 +55,14 @@ Write timing in seconds, then convert: frames = seconds x fps. A 0.6 s entrance 
 
 Damping ratio = damping / (2 x √(stiffness x mass)).
 
-| Damping ratio | Feel |
-| --- | --- |
-| 1.0 | no bounce |
-| 0.7-0.85 | premium |
-| 0.4-0.6 | playful |
-| under 0.3 | cartoon |
+
+| Damping ratio | Feel      |
+| ------------- | --------- |
+| 1.0           | no bounce |
+| 0.7-0.85      | premium   |
+| 0.4-0.6       | playful   |
+| under 0.3     | cartoon   |
+
 
 - Remotion's default spring (mass 1, damping 10, stiffness 100) is 0.5, playful. Damping 16 at stiffness 100 gives 0.8.
 - Position and size may bounce. Opacity and colour never do.
@@ -85,15 +89,12 @@ Letters 1 frame apart, words 60-120 ms, list items 40-80 ms. Start the next elem
 
 - Contrast at least 4.5:1 on every frame. No more than 3 flashes per second.
 - Under 8 words per line. Meaning never depends on colour alone.
-- Sizes when the style doesn't say: at 1080x1920, body text at least 48 px and headlines 96-160 px. At 16:9, body text at least 40 px.
-- In vertical videos, place text from `src/safe-zones.ts`, not by margin. Horizontal videos have no safe zone (see "Where things go" in `SKILL.md`).
 - Test with the longest text you expect. If a headline wraps to 3 lines, shorten the text or widen the box before touching the motion.
 
 ## Composition
 
 - The main element is the largest, brightest or most contrasted thing on screen.
-- The first 2 s carry the hook, and frame 0 is already a finished picture.
-- The last frame works as a still.
+- Frame 0 is already a finished picture, and the last frame works as a still.
 - Each aspect ratio is its own layout. Never crop a 16:9 design into 9:16. 9:16 gets fewer elements, stacked.
 
 ## Transitions
@@ -104,16 +105,14 @@ Letters 1 frame apart, words 60-120 ms, list items 40-80 ms. Start the next elem
 
 ## Sound
 
-Graphics must work with the sound off, because feeds start muted. Add sound once the picture is approved.
+Graphics must work with the sound off, because feeds start muted. What sounds to use, and where, comes from the style and `SKILL.md`; this is what makes them sound right.
 
-- Sound effects and music come from ElevenLabs or from files the user gives you. Never synthesize them in code. Note each source in `about.md`.
-- Reuse sound effects. They live in `.attentionmachine/sounds/`, named for what they are (`pop-soft.mp3`, `whoosh-logo.mp3`). Look there first. Make only what's missing, save it there, then copy it into the project.
-- One sound per meaningful change: a whoosh for movement, a pop for something appearing, a click for a click. Not on every graphic.
-- Every effect plays at one level for the whole video. Once per video, run `scripts/effect-levels.mjs` on the voice and every effect file, and play each file at its volume wherever it's used, never a volume per moment. The style says how far under the voice; 20 dB (about 10%) if it doesn't.
+- One sound per meaningful change: a swoosh for movement, a pop for something appearing, a click for a click. Not on every graphic.
+- Every effect sits at one level for the whole video, and all of them the same distance under the voice. Real recordings over synthesized ones.
 - Keep sound cues in the same timing data as the graphics, so moving a graphic moves its sound.
 - Line up a sound's loudest point with its event, not the start of the file. The picture may lead the sound by 1 frame, never trail it.
 - With music: frames per beat = fps x 60 / BPM. Work out each beat from its time and round it, never add beats up. Bring in titles and cuts on the beat. Beat detection can lock onto the off-beat, so check the kicks on a waveform below 120 Hz and shift the grid if they don't line up.
-- Mix: the voice loudest, effects above the music, music ducked under speech. `scripts/finish-sound.mjs` sets the final loudness.
+- Mix: the voice loudest, effects above the music, music ducked under speech.
 
 ## Ban list
 
@@ -128,21 +127,15 @@ Unless the style asks for them:
 - too much bouncing, objects that teleport;
 - stock footage, generic AI images, made-up screens, numbers or slogans;
 - linear easing on movement;
-- sound effects made in code, unlicensed music.
+- sound effects made in code.
 
 After each first render, add whatever generic look crept in anyway.
-
-## Building it
-
-- Every frame depends only on its frame number. No timers, CSS transitions, `requestAnimationFrame` or state carried between frames. Seed any randomness, and load assets before they appear.
-- Keep text, numbers, timings and sound cues in one data file, so "slow down the second title" changes one value and nothing else moves.
-- Frames inside a `<Sequence>` count from its start: frame 30 in a sequence that starts at 120 is frame 150 in the video.
 
 ## Checking your work
 
 Check stills at each graphic's first readable frame, its busiest moment and the last frame of the video. They go on the version's check sheet (see "Showing the work" in `SKILL.md`).
 
-- The hook lands in the first 2 s. The first and last frames work as stills.
+- The first and last frames work as stills.
 - One thing owns the screen at a time.
 - Every hold survives a read-aloud. Text is still, sharp and at 4.5:1 or better, worked out from the colours.
 - Graphics start and end on a cut or a spoken word, never a few frames over a cut.
@@ -154,15 +147,18 @@ Check stills at each graphic's first readable frame, its busiest moment and the 
 
 ### When something looks off
 
-| Symptom | Fix |
-| --- | --- |
-| Looks AI-made | Name the generic choices it made, ban them, render again |
-| Busy | One owner; the rest 0.1-0.15 s later at 60% of the travel |
-| Text gone too soon | Count from readable, read it aloud, extend |
-| Headline on 3 lines | Fix the text or the box before the motion |
-| Smeared text | Blur only during the entrance |
-| Drags | Cut each hold by a beat, or pop 1.0 → 1.08 → 1.0 on the beat |
-| Different between renders | A clock or unseeded randomness somewhere |
-| Cuts feel off the music | Beat grid on the off-beat: recheck the kicks, shift the grid or the music start |
-| Sound effect lands late | Line up its loudest point, not its start |
-| Same error twice | Stop and rethink the approach instead of retrying |
+
+| Symptom                   | Fix                                                                             |
+| ------------------------- | ------------------------------------------------------------------------------- |
+| Looks AI-made             | Name the generic choices it made, ban them, render again                        |
+| Busy                      | One owner; the rest 0.1-0.15 s later at 60% of the travel                       |
+| Text gone too soon        | Count from readable, read it aloud, extend                                      |
+| Headline on 3 lines       | Fix the text or the box before the motion                                       |
+| Smeared text              | Blur only during the entrance                                                   |
+| Drags                     | Cut each hold by a beat, or pop 1.0 → 1.08 → 1.0 on the beat                    |
+| Different between renders | A clock or unseeded randomness somewhere                                        |
+| Cuts feel off the music   | Beat grid on the off-beat: recheck the kicks, shift the grid or the music start |
+| Sound effect lands late   | Line up its loudest point, not its start                                        |
+| Same error twice          | Stop and rethink the approach instead of retrying                               |
+
+

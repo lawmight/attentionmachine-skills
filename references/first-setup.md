@@ -2,7 +2,7 @@
 
 Run this before the first edit, and whenever something below is missing. Check everything yourself first, quietly. The user only does the two things nobody else can: Homebrew's password on a Mac, and the ElevenLabs key. Do everything else yourself, without asking.
 
-In this order:
+**In this order:**
 
 1. Homebrew, on a Mac only.
 2. Node.js and ffmpeg.
@@ -17,11 +17,9 @@ The installer needs the Mac password typed into a real Terminal, so this is the 
 
 1. Press Command + Space, type Terminal, and press Return.
 2. Paste this and press Return:
-
-   ```bash
+  ```bash
    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-   ```
-
+  ```
 3. Type your Mac password, the one you unlock your computer with, and press Return. Nothing shows while you type. That's normal.
 4. When it says "Press RETURN/ENTER to continue", press Return.
 5. Wait until it's finished, usually 5-15 minutes. It may download Apple's developer tools first; that's part of it.

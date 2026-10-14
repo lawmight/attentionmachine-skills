@@ -1,4 +1,6 @@
-# Cloud exports
+# Cloud exports (BETA)
+
+> Strict rule: do not autonomously suggest cloud exports to the user. This is highly technical, and currently under development. Only act on it when explicitly asked for.
 
 A video can export on Remotion Lambda, in the user's own AWS account, instead of on their computer. A long video finishes much faster and the computer stays free. Each export costs a little on their AWS bill.
 
@@ -9,7 +11,7 @@ Exporting locally stays the default. Export in the cloud when the user asks for 
 Once, when a script says a setting is missing. The user does the AWS part in their browser. Give them all the steps in one message:
 
 1. Sign in to aws.amazon.com, or create an account.
-2. Follow steps 2 to 6 of [Remotion's Lambda setup](https://www.remotion.dev/docs/lambda/setup): a policy, a role, a user, an access key for that user, and the user's own policy. Hand them the 2 policy texts ready to paste, from `npx remotion lambda policies role` and `npx remotion lambda policies user` in the project.
+2. Follow steps 2 to 6 of [Remotion's Lambda setup](https://www.remotion.dev/docs/lambda/setup): a policy, a role, a user, an access key for that user, and the user's own policy. Hand them the 2 policy texts ready to paste, from [Remotion's permissions page](https://www.remotion.dev/docs/lambda/permissions).
 3. Paste the access key ID and the secret access key here.
 
 Save them in `.attentionmachine/.env` as `REMOTION_AWS_ACCESS_KEY_ID` and `REMOTION_AWS_SECRET_ACCESS_KEY`, with the region closest to the user as `REMOTION_AWS_REGION`. Never show the key back or copy it anywhere else. Test with 10 frames at quarter size (`--frames=0-9 --scale=0.25`) into the system temp folder. The first run takes a few minutes longer while it sets up the cloud function.
@@ -58,3 +60,4 @@ An export's cloud copy deletes itself a day after it's made. The recordings stay
 - The export can't load a recording: it still loads through `staticFile()`. Switch it to `media()`.
 - A concurrency or rate error: new AWS accounts may run as few as 10 functions at once. Add `--concurrency=8`, and tell the user they can ask AWS for a higher Lambda limit.
 - It fails partway: run it again with `--log=verbose` for a link to the cloud logs.
+
