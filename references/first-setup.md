@@ -1,4 +1,4 @@
-# FIRST SETUP
+# First setup
 
 Run this before the first edit, and whenever something below is missing. Check everything yourself first, quietly. The user only does the two things nobody else can: Homebrew's password on a Mac, and the ElevenLabs key. Do everything else yourself, without asking.
 
@@ -9,7 +9,7 @@ In this order:
 3. Skills: this one and Remotion's.
 4. The ElevenLabs key.
 
-## HOMEBREW (MAC ONLY)
+## Homebrew (Mac only)
 
 Check `brew --version`. A fresh install isn't on your shell's path yet, so also look for `/opt/homebrew/bin/brew` (Apple silicon) and `/usr/local/bin/brew` (Intel). Windows and Linux skip this part.
 
@@ -31,7 +31,7 @@ Then finish it yourself. Homebrew ends with "Next steps" that add it to the path
 
 If it fails, ask them to paste or screenshot what Terminal says, and take it from there.
 
-## NODE.JS AND FFMPEG
+## Node.js and ffmpeg
 
 Install both yourself:
 
@@ -41,7 +41,7 @@ Install both yourself:
 
 The scripts need a full ffmpeg. The one bundled with Remotion lacks their sound filters. Check that `ffmpeg -hide_banner -filters` lists `ebur128` and `alimiter`.
 
-## SKILLS
+## Skills
 
 This skill and Remotion's official skills, the guide for all Remotion work. Both come through `npx skills` (project scope), so one update keeps them current.
 
@@ -49,7 +49,7 @@ This skill and Remotion's official skills, the guide for all Remotion work. Both
 - Remotion's skills: if they're missing, install all of them, for every agent, without picking (`npx -y skills add remotion-dev/skills -y`).
 - Then update both: `npx -y skills update -p -y`.
 
-## ELEVENLABS
+## ElevenLabs
 
 Check that `ELEVENLABS_API_KEY` is in `.attentionmachine/.env`. If not, give the user all the steps in one message, ending with "paste the key here":
 
@@ -61,6 +61,6 @@ Then save it in `.attentionmachine/.env` and test it with a few spoken words thr
 
 Never show the key back or copy it anywhere else.
 
-## WHEN IT'S DONE
+## When it's done
 
 Tell the user in one line that setup is done, and carry on with their video. If they haven't shared one yet, ask for it right here. No new chat needed. Don't list what you installed or what was already there.

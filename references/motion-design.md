@@ -1,10 +1,10 @@
-# MOTION DESIGN REFERENCES
+# Motion design references
 
 How to make titles, graphics, overlays and transitions look directed, not generated. The style decides how things look and move. This guide fills in whatever the style leaves open. Captions aren't motion graphics and aren't covered here.
 
 The generic AI look lives in the decisions you leave open. Swap every adjective for a number, a state or a named rule.
 
-## WHAT EARNS MOTION
+## What earns motion
 
 Animate only what helps the viewer follow the speaker:
 
@@ -18,7 +18,7 @@ When a moment has none of these, leave the speaker alone.
 
 When something earns a graphic, the graphic acts out the idea instead of just showing the thing: it builds piece by piece on the words, drops what gets cut, turns the before into the after. Nothing is pasted on. Everything that arrives gets a small, tasteful entrance and a little life while it holds.
 
-## PRINCIPLES
+## Principles
 
 1. Numbers, not adjectives. "Premium" becomes curves and spring values. "Punchy" becomes durations and beats.
 2. One thing owns the screen at a time. Everything else waits, dims to 40% or holds still. After every move the viewer knows where to look.
@@ -29,9 +29,9 @@ When something earns a graphic, the graphic acts out the idea instead of just sh
 7. Only real things. Never invent screens, logos, numbers or quotes. When something's missing, use a placeholder.
 8. Go big or don't move. A zoom into proof (a screenshot, a result) goes as big as the safe zone allows and highlights the line that matters. A timid zoom reads as a mistake.
 
-## NUMBERS
+## Numbers
 
-### DURATIONS
+### Durations
 
 | Use | Value |
 | --- | --- |
@@ -42,14 +42,14 @@ When something earns a graphic, the graphic acts out the idea instead of just sh
 
 Write timing in seconds, then convert: frames = seconds x fps. A 0.6 s entrance is 18 frames at 30 fps.
 
-### EASING
+### Easing
 
 - Entering: ease-out. Exiting: ease-in. Moving across the screen: ease-in-out.
 - Zooms and pans, including punch-ins on the speaker, get the softest curves, such as ease-in-out-quart.
 - Linear only for rotation, progress bars and loops. Linear on a move is the quickest way to make it look like a render.
 - "Premium" usually means ease-out-quint on entrances, springs at a damping ratio of 0.8, and no overshoot on text.
 
-### SPRINGS
+### Springs
 
 Damping ratio = damping / (2 x √(stiffness x mass)).
 
@@ -66,54 +66,56 @@ Damping ratio = damping / (2 x √(stiffness x mass)).
 - Everything settles before the text that depends on it appears.
 - When tuning, keep the destination fixed and change one value at a time.
 
-### STAGGER
+### Stagger
 
 Letters 1 frame apart, words 60-120 ms, list items 40-80 ms. Start the next element when the previous one is 30-50% done.
 
-### EMPHASIS
+### Emphasis
 
 - Pop: scale 1.0 → 1.08 → 1.0 over 6 frames, peaking on the word or the beat.
 - Living hold: a slow push, 1.00 → 1.03 over 3 s. Define it from start to end, never as a percentage per frame, or it compounds.
 
-### READING TIME
+### Reading time
 
 - Count the hold from the moment the text is readable, not from when its entrance starts.
 - At least 0.3 s per word plus 0.5 s. Then read it aloud at normal speed, and extend any hold that ends before you finish.
 - Nothing near the text moves while it's being read. Blur only during a fast entrance, never on text being read.
 
-### TEXT
+### Text
 
 - Contrast at least 4.5:1 on every frame. No more than 3 flashes per second.
 - Under 8 words per line. Meaning never depends on colour alone.
 - Sizes when the style doesn't say: at 1080x1920, body text at least 48 px and headlines 96-160 px. At 16:9, body text at least 40 px.
-- Place text from `src/safe-zones.ts`, not by margin.
+- In vertical videos, place text from `src/safe-zones.ts`, not by margin. Horizontal videos have no safe zone (see "Where things go" in `SKILL.md`).
 - Test with the longest text you expect. If a headline wraps to 3 lines, shorten the text or widen the box before touching the motion.
 
-## COMPOSITION
+## Composition
 
 - The main element is the largest, brightest or most contrasted thing on screen.
 - The first 2 s carry the hook, and frame 0 is already a finished picture.
 - The last frame works as a still.
 - Each aspect ratio is its own layout. Never crop a 16:9 design into 9:16. 9:16 gets fewer elements, stacked.
 
-## TRANSITIONS
+## Transitions
 
-- Default to a straight cut. Use match cuts and wipes only where they mean something.
+- Between clips, a hard cut (see "Clips" in `SKILL.md`). Inside a graphic, use match cuts and wipes only where they mean something.
 - After changing one part, check the cuts on both sides of it before watching the whole video.
 - When a transition overlaps two parts, count the overlap in the total length.
 
-## SOUND
+## Sound
 
 Graphics must work with the sound off, because feeds start muted. Add sound once the picture is approved.
 
 - Sound effects and music come from ElevenLabs or from files the user gives you. Never synthesize them in code. Note each source in `about.md`.
+- Reuse sound effects. They live in `.attentionmachine/sounds/`, named for what they are (`pop-soft.mp3`, `whoosh-logo.mp3`). Look there first. Make only what's missing, save it there, then copy it into the project.
 - One sound per meaningful change: a whoosh for movement, a pop for something appearing, a click for a click. Not on every graphic.
+- Every effect plays at one level for the whole video. Once per video, run `scripts/effect-levels.mjs` on the voice and every effect file, and play each file at its volume wherever it's used, never a volume per moment. The style says how far under the voice; 20 dB (about 10%) if it doesn't.
 - Keep sound cues in the same timing data as the graphics, so moving a graphic moves its sound.
 - Line up a sound's loudest point with its event, not the start of the file. The picture may lead the sound by 1 frame, never trail it.
 - With music: frames per beat = fps x 60 / BPM. Work out each beat from its time and round it, never add beats up. Bring in titles and cuts on the beat. Beat detection can lock onto the off-beat, so check the kicks on a waveform below 120 Hz and shift the grid if they don't line up.
 - Mix: the voice loudest, effects above the music, music ducked under speech. `scripts/finish-sound.mjs` sets the final loudness.
 
-## BAN LIST
+## Ban list
 
 Unless the style asks for them:
 
@@ -130,15 +132,15 @@ Unless the style asks for them:
 
 After each first render, add whatever generic look crept in anyway.
 
-## BUILDING IT
+## Building it
 
 - Every frame depends only on its frame number. No timers, CSS transitions, `requestAnimationFrame` or state carried between frames. Seed any randomness, and load assets before they appear.
 - Keep text, numbers, timings and sound cues in one data file, so "slow down the second title" changes one value and nothing else moves.
 - Frames inside a `<Sequence>` count from its start: frame 30 in a sequence that starts at 120 is frame 150 in the video.
 
-## CHECKING YOUR WORK
+## Checking your work
 
-Check stills at each graphic's first readable frame, its busiest moment and the last frame of the video. They go on the version's check sheet (see SHOWING THE WORK in `SKILL.md`).
+Check stills at each graphic's first readable frame, its busiest moment and the last frame of the video. They go on the version's check sheet (see "Showing the work" in `SKILL.md`).
 
 - The hook lands in the first 2 s. The first and last frames work as stills.
 - One thing owns the screen at a time.
@@ -150,7 +152,7 @@ Check stills at each graphic's first readable frame, its busiest moment and the 
 - Only real logos, pictures and numbers. Colours and fonts come from the style.
 - The video works muted. Sounds peak on their events.
 
-### WHEN SOMETHING LOOKS OFF
+### When something looks off
 
 | Symptom | Fix |
 | --- | --- |

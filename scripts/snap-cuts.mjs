@@ -22,7 +22,8 @@
 // come early, so a cut after a word waits for its sound to die. Each clip keeps
 // a little quiet at both ends, and at a join the outgoing quiet plays under the
 // incoming quiet at full volume, with a 30 ms fade at each edge so nothing clicks.
-// Coughs and throat clears are cut out; laughter stays.
+// Coughs and throat clears are cut out; laughter stays. A noise tag often stretches
+// over its whole gap, so it only says which gap to cut; the sound places those cuts too.
 import { execFileSync } from "node:child_process";
 import { readFileSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
@@ -147,25 +148,27 @@ const placeOut = (endS, latestS) => {
 };
 
 const { words, noises } = readTranscript(transcriptPath);
-const keeps = JSON.parse(readFileSync(keepsPath, "utf8"));
-for (const [from, to] of keeps) {
+// Keeps that touch are one keep, so the noises and long pauses between them are cut too.
+const keeps = [];
+for (const [from, to] of JSON.parse(readFileSync(keepsPath, "utf8"))) {
   if (!(Number.isInteger(from) && Number.isInteger(to) && from >= 0 && from <= to && to < words.length)) {
     throw new Error(`Bad keep [${from}, ${to}]; there are ${words.length} words`);
   }
+  const last = keeps[keeps.length - 1];
+  if (last && last[1] + 1 === from) last[1] = to;
+  else keeps.push([from, to]);
 }
 
 // Noises between word i - 1 and word i.
 const noisesBefore = (i) => noises.filter((n) => n.start < words[i].start && (i === 0 || n.start > words[i - 1].start));
 
 const inFor = (i) => {
-  const noiseEnd = Math.max(-Infinity, ...noisesBefore(i).map((n) => n.end + NEIGHBOUR_GAP_S));
-  const earliest = Math.max(words[i].start - IN_SEARCH_S, i > 0 ? words[i - 1].start + NEIGHBOUR_GAP_S : 0, noiseEnd);
+  const earliest = Math.max(words[i].start - IN_SEARCH_S, i > 0 ? words[i - 1].start + NEIGHBOUR_GAP_S : 0);
   return placeIn(words[i].start, Math.min(earliest, words[i].start - 0.01));
 };
 const outFor = (i) => {
   const next = i + 1 < words.length ? i + 1 : null;
-  const noiseStart = next === null ? Infinity : Math.min(Infinity, ...noisesBefore(next).map((n) => n.start - NEIGHBOUR_GAP_S));
-  return placeOut(words[i].end, Math.min(words[i].end + OUT_SEARCH_S, next === null ? durationS : words[next].start - NEIGHBOUR_GAP_S, noiseStart));
+  return placeOut(words[i].end, Math.min(words[i].end + OUT_SEARCH_S, next === null ? durationS : words[next].start - NEIGHBOUR_GAP_S));
 };
 
 const clockOf = (s) => `${Math.floor(s / 60)}:${(s % 60).toFixed(1).padStart(4, "0")}`;

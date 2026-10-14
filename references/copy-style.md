@@ -1,8 +1,8 @@
-# COPYING A STYLE FROM A VIDEO
+# Copying a style from a video
 
 A user shares a video they like and wants that look ("make a style out of this"). The result is a `style.md` in `.attentionmachine/styles/<name>/`: the system behind the look, written so it works on the user's own recordings. It doesn't have to be a perfect copy, but the closer the better: someone who knows the original should recognise the look.
 
-## GATHER
+## Gather
 
 - Two or three videos of the same look beat one, because one video mixes the system with one-offs. Use every one the user shared. If there's only one, ask once whether they have more, then carry on either way.
 - One look, one style. Videos from the same account usually share one; the downloaded info file says who posted each. Different looks get separate styles, unless the user wants a mix.
@@ -11,16 +11,16 @@ A user shares a video they like and wants that look ("make a style out of this")
 - Transcribe each video with word timings and audio events. Learn from what the creator says as well as what they do; some explain their own method.
 - Write findings into `reference/notes.md` as you go, with the times they show up. A long look loses details otherwise.
 
-## LOOK
+## Look
 
-- One frame per second for the overview: which kinds of text, pictures and layouts there are, and how often something changes.
-- Every frame around cuts, new text or pictures, and zooms, until the pattern is clear. One frame per second hides zooms, slides, pops and punch-ins.
+- One frame per second for the overview: which kinds of text, overlays and layouts there are, and how often something changes.
+- Every frame around cuts, new text or overlays, and zooms, until the pattern is clear. One frame per second hides zooms, slides, pops and punch-ins.
 - Find every cut. Jump cuts on the same background barely change the picture, so scene detection (ffmpeg `scdet`) needs a low threshold. That also catches text appearing; a real cut changes the picture around the text too. Note what happens at each: a punch-in, new text, a sound.
 - Full-size crops of each kind of text, for fonts, colours and spacing.
 
 What happens in every video is the style. What happens once is a one-off: leave it out or mark it rare.
 
-## WHAT TO WRITE DOWN
+## What to write down
 
 Every kind of text, including the rare ones (captions, big words, titles, labels, numbers, notes), each with:
 
@@ -34,9 +34,9 @@ Every kind of text, including the rare ones (captions, big words, titles, labels
 - how it moves in and out: frames, direction, easing, overshoot;
 - what it never does.
 
-Then everything else: pictures (what kind, size, edges, placement, how they match what's said), layouts (split, inset, cutaway, and when), cuts and pacing (how tight, what hides a cut, how often something changes), punch-ins and zooms (how far, how often, what for), sound effects, the opening and the ending.
+Then everything else: overlays (what kind, size, edges, placement, how they match what's said), layouts (split, inset, cutaway, and when), cuts and pacing (how tight, what hides a cut, how often something changes), punch-ins and zooms (how far, how often, what for), sound effects, the opening and the ending.
 
-## FONTS
+## Fonts
 
 "A serif" or "a bold sans" isn't a match. Weight and width are where guesses go wrong most, then letter shapes.
 
@@ -47,13 +47,13 @@ Then everything else: pictures (what kind, size, edges, placement, how they matc
 - Check numbers, punctuation and special characters in the pick. Some script fonts make "2." look like "Q.".
 - Stop once a pick matches the weight, the width and the telling letters. Use the same family for the other kinds of text unless they clearly differ. Don't hunt for the paid original: if you recognise it, name it, but the style uses the closest free one.
 
-## COLOURS
+## Colours
 
 - Sample the inside of thick letters or shapes over several frames and take the typical value. Edges and thin strokes mix with the background.
 - Compression shifts colours a little. If a colour is clearly meant to be pure (white, a full yellow), use the pure value.
 - Give each colour its job. Note shadows, glows and outlines too: colour, softness, strength.
 
-## LINE SPACING
+## Line spacing
 
 Stacked titles and mixed-size compositions often sit very close. This is where copies go wrong: letters run into each other.
 
@@ -61,14 +61,14 @@ Stacked titles and mixed-size compositions often sit very close. This is where c
 - Write the gap as a share of letter height ("about a third of the small line's letter height"), not as a line-height number. Fonts carry different built-in spacing, so the same number gives different gaps in another font.
 - Say whether lines ever touch or overlap. Usually never.
 
-## MOTION
+## Motion
 
-- Step through a few examples of each kind of movement frame by frame: text arriving and leaving, pictures, punch-ins and zooms, transitions.
+- Step through a few examples of each kind of movement frame by frame: text arriving and leaving, overlays, punch-ins and zooms, transitions.
 - For each, note how many frames it takes to settle (and the video's frame rate), what changes (position, size, opacity, blur), from where, and whether it overshoots and springs back.
 - Punch-ins and zooms: how much closer, instant or gradual, how long they hold, and what they're for (hiding a cut, landing a point, waking the viewer up).
 - Also note what never moves, and say how it should feel: snappy, soft, bouncy, calm.
 
-## SOUND
+## Sound
 
 Leave music out. Users pick their own.
 
@@ -78,20 +78,22 @@ Sound effects are an educated guess; say so in the style.
 - Otherwise decide from the look and the pace. Fast, punchy edits with zooms, pops and big words usually carry subtle whooshes, pops or clicks on those moments. Calm, hand-made looks get few or none.
 - Write a clear rule: which moments get a sound, what kind, and how loud next to the voice. Or "no sound effects".
 
-## WRITING IT
+## Writing it
 
-Same shape as the ready-made styles in this skill's `styles/`. Name it for the look, in plain words. No creator names, no lines from their videos, no examples that are really quotes.
+Same shape as the ready-made styles in this skill's `styles/`. Name it for the look, in plain words.
+
+A style is one look in every shape. Write what holds whatever the shape (colours, fonts, kinds of text, overlays, pacing, motion, sound) first. What only works in the source videos' shape (vertical or horizontal) goes in a "Vertical videos" or "Horizontal videos" section after the "General" one: positions, sizes, layouts, and things like captions or a hook that one shape has and the other doesn't. Only write a section for a shape you've seen. When the user later edits in the other shape and gives feedback, add that section then. No creator names, no lines from their videos, no examples that are really quotes.
 
 Write the system, so it works on a recording that isn't theirs:
 
 - Sizes are targets that shrink to fit the safe zone. Keep the relationships (the big word about three times the caption).
 - Say what the source footage was like and what the look depends on (room above the head, a background dark enough for white text), so whoever edits knows what to keep when the user's recording differs.
 - Make content-dependent parts conditional: only when the speaker counts steps, names a thing, asks a question, waves.
-- A rule that needs footage or pictures says what to do when there are none.
+- A rule that needs footage or overlays says what to do when there are none.
 - Settle overlaps: which text wins when two could show at once, what leaves together, how long things hold. Read the whole file once for contradictions.
 - Define fuzzy categories: does a screenshot count as a photo? A logo?
 - Say how text stays readable when the background changes (shadow, box, placement).
 
-## TRY IT
+## Try it
 
 Try it on one of the user's recordings right away, the latest one unless another fits better. Before showing, put stills of the edit next to frames from the original (in `reference/`) at the same kinds of moments, and compare fonts, sizes, colours, spacing and motion. Look at every moment with text on more than one line at full size. Where the `style.md` was unclear, fix the file, not just the edit.

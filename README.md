@@ -26,13 +26,13 @@ You talk to the camera. It does the rest.
 ## What it did for coaches.
 
 ⭐️⭐️⭐️⭐️⭐️
-***"I actually sound like I'm NOT rambling."*** — Ash, Wildflower Academy
+***"I actually sound like I'm NOT rambling."*** - Ash, Wildflower Academy
 
 ⭐️⭐️⭐️⭐️⭐️
-***"I've literally never posted this much in my life."*** — Meggie, PepTalkHer
+***"I've literally never posted this much in my life."*** - Meggie, PepTalkHer
 
 ⭐️⭐️⭐️⭐️⭐️
-***"It pulled a six-second clip an editor would never have found."*** — Talia, Violet Bear Marketing
+***"It pulled a six-second clip an editor would never have found."*** - Talia, Violet Bear Marketing
 
 Ash posted 1 reel edited by the machine and sold $822 worth of product + got 200 new leads, from content she almost didn't post. That's the power of these skills.
 
